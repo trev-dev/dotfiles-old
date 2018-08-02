@@ -64,7 +64,8 @@
   :ensure t
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
-         ("C-c h p" . helm-projectile))
+         ("C-c h p" . helm-projectile)
+         ("C-c h C-p s" . helm-projectile-switch-project))
   :init
   (require 'helm-config)
   :config
