@@ -22,3 +22,7 @@
      A vim setup for JS and Python development as well as a ton of themes. Packages are handled with vundle.
 - [[/vim][Files & Readme]]
 - [[/vim/.vimrc][Config File]]
+
+** TODO Things that need fixing in this repo
+- [ ] Convert config files into submodules (maybe)
+- [ ] Finish updating the documentation
