@@ -1,0 +1,15 @@
+* Dotfile Configurations
+
+**** Bashrc
+     My bashrc config complete with a bunch of useful aliases and color prompt setup
+     [[/bashrc][Readme]]
+**** Emacs
+     My emacs config which is currently set up for org as well as Javascript & Python development.
+
+**** Tmux
+     My tmux configuration with some keybind changes (for Vim-like navigation) as well as theming.
+
+**** Vim
+     A vim setup for JS and Python development as well as a ton of themes. Packages are handled with vundle.
+
+#+TITLE: Dotfile Configurations
