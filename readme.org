@@ -23,6 +23,6 @@
 - [[/vim][Files & Readme]]
 - [[/vim/.vimrc][Config File]]
 
-** TODO Things that need fixing in this repo
-- [ ] Convert config files into submodules (maybe)
-- [ ] Finish updating the documentation
+** TODO Things that need fixing in this repo [0/2]
+   - [ ] Convert config files into submodules (maybe)
+   - [ ] Finish updating the documentation
