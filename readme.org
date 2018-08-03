@@ -23,6 +23,7 @@
 - [[/vim][Files & Readme]]
 - [[/vim/.vimrc][Config File]]
 
-** TODO Things that need fixing in this repo [0/2]
+** TODO Things that need fixing in this repo [1/3]
    - [ ] Convert config files into submodules (maybe)
    - [ ] Finish updating the documentation
+   - [X] Convert .emacs into an org config loader
