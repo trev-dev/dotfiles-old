@@ -1,6 +1,6 @@
 * Get Repositories
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (require 'package)
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -14,7 +14,7 @@
 * Emacs Config Changes
 ** Layout & Indentation
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (global-linum-mode 1)
 (global-hl-line-mode 1)
 (setq-default indent-tabs-mode nil)
@@ -24,7 +24,7 @@
 
 ** Font Config
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 (add-to-list 'default-frame-alist '(font . "Fira Code Medium" ))
@@ -33,21 +33,21 @@
 
 ** Empty Scratch
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (setq initial-scratch-message "")
 #+end_src
 
 ** Kill Annoying Buffers
 *** Messages
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 #+end_src
 
 *** Completions
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (add-hook 'minibuffer-exit-hook
       '(lambda ()
          (let ((buffer "*Completions*"))
@@ -58,7 +58,7 @@
 * Get & Configure 3rd Party Packages
 ** Use Package
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -69,14 +69,14 @@
 
 ** Better Defaults
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package better-defaults
   :ensure t)
 #+end_src
 
 ** Expand Region
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package expand-region
   :ensure t
   :config
@@ -85,7 +85,7 @@
 
 ** Helm
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
@@ -103,7 +103,7 @@
 
 ** Treemacs
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package treemacs
   :ensure t
   :defer t
@@ -172,7 +172,7 @@
 
 ** All The Icons
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package all-the-icons
   :ensure t
   :config
@@ -183,7 +183,7 @@
   /"In the first age, in the first battle, when the shadows first lengthened, one stood. Burned by the embers of Armageddon, his soul blistered by the fires of Hell and tainted beyond ascension, he chose the path of perpetual torment. In his ravenous hatred he found no peace; and with boiling blood he scoured the Umbral Plains seeking vengeance against the dark lords who had wronged him. He wore the crown of the Night Sentinels, and those that tasted the bite of his sword named him... the Doom Slayer."/
 *** Modeline
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package doom-modeline
   :ensure t
   :defer t
@@ -192,17 +192,18 @@
 
 *** Themes
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package doom-themes
   :ensure t
   :init
   (setq doom-themes-enable-bold t
-	doom-themes-enable-italic t))
+	doom-themes-enable-italic t)
+        (load-theme 'doom-city-lights t))
 #+end_src
 
 ** Magit
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package magit
   :ensure t
   :config
@@ -211,7 +212,7 @@
 
 ** Git Gutter (Diff-Hl)
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package diff-hl
   :ensure t
   :config
@@ -222,7 +223,7 @@
 
 ** Flycheck (Linting)
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package flycheck
   :ensure t
   :config
@@ -247,7 +248,7 @@
 
 ** Rainbow Delimiters
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package rainbow-delimiters
   :ensure t
   :config
@@ -256,17 +257,17 @@
 
 ** Autopair
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package autopair
   :ensure t
-  :confign
+  :config
   (autopair-global-mode))
 #+end_src
 
 ** Modes & Auto Completion
 *** Company (Auto Complete)
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package company
 :ensure t
 :config
@@ -285,7 +286,7 @@
 
 *** Jedi (Python)
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package company-jedi
     :ensure t
     :config
@@ -300,7 +301,7 @@
 
 *** JS2-Modee
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package js2-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -311,7 +312,7 @@
 
 *** JS2-refactor
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package js2-refactor
   :config
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
@@ -322,7 +323,7 @@
 
 *** Xref-JS2
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package xref-js2
   :config
   (define-key js-mode-map (kbd "M-.") nil)
@@ -333,7 +334,7 @@
 
 *** RJSX-Mode
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package rjsx-mode
   :ensure t
   :config
@@ -345,7 +346,7 @@
 
 *** Company-Tern
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package company-tern
   :config
   (add-to-list 'company-backends 'company-tern)
@@ -359,7 +360,7 @@
 
 *** Web-Mode
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package web-mode
   :ensure t
   :config
@@ -371,7 +372,7 @@
 
 *** SASS-Mode
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package sass-mode
   :ensure t
   :config
@@ -380,21 +381,21 @@
 
 *** Deferred
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package deferred
   :ensure t)
 #+end_src
 
 *** Python-Environment
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package python-environment
   :ensure t)
 #+end_src
 
 *** Markdown-Mode
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
@@ -406,7 +407,7 @@
 
 *** Org Mode <3
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package org
   :ensure t
   :config
@@ -418,14 +419,14 @@
 
 *** YAML Mode
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package yaml-mode
   :ensure t)
 #+end_src
 
 ** Ace Jump
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (use-package ace-jump-mode
   :ensure t
   :bind ("C-'" . ace-jump-mode))
