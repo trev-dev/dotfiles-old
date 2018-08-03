@@ -1,3 +1,6 @@
+* Get Repositories
+
+#+begin_src elisp
 (require 'package)
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -6,60 +9,83 @@
 
 (setq package-enable-at-startup nil)
 (package-initialize)
+#+end_src
 
+* Emacs Config Changes
+** Layout & Indentation
 
-""""" Emacs Config Changes """""
-
-;; Interface changes
+#+begin_src elisp
 (global-linum-mode 1)
 (global-hl-line-mode 1)
 (setq-default indent-tabs-mode nil)
 (setq tab-width 2)
 (setq inhibit-startup-screen t)
+#+end_src
 
-;; Font
+** Font Config
+
+#+begin_src elisp
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 (add-to-list 'default-frame-alist '(font . "Fira Code Medium" ))
 (set-face-attribute 'default t :font "Fira Code Medium" )
-;; Makes *scratch* empty.
-(setq initial-scratch-message "")
+#+end_src
 
-;; Kill annoying buffers
+** Empty Scratch
+
+#+begin_src elisp
+(setq initial-scratch-message "")
+#+end_src
+
+** Kill Annoying Buffers
+*** Messages
+
+#+begin_src elisp
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
+#+end_src
 
-;; Removes *Completions* from buffer after you've opened a file.
+*** Completions
+
+#+begin_src elisp
 (add-hook 'minibuffer-exit-hook
       '(lambda ()
          (let ((buffer "*Completions*"))
            (and (get-buffer buffer)
                 (kill-buffer buffer)))))
+#+end_src
 
+* Get & Configure 3rd Party Packages
+** Use Package
 
-""""" Required Packages & Configs """""
-
+#+begin_src elisp
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
 (eval-when-compile
   (require 'use-package))
+#+end_src
 
-;; Better defaults
+** Better Defaults
 
+#+begin_src elisp
 (use-package better-defaults
   :ensure t)
+#+end_src
 
-;; Expand region
+** Expand Region
 
+#+begin_src elisp
 (use-package expand-region
   :ensure t
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
+#+end_src
 
-;; Helm
+** Helm
 
+#+begin_src elisp
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
@@ -73,8 +99,11 @@
   (helm-mode 1)
   (use-package helm-projectile
     :ensure t))
+#+end_src
 
-;; Treemacs
+** Treemacs
+
+#+begin_src elisp
 (use-package treemacs
   :ensure t
   :defer t
@@ -132,49 +161,68 @@
 (use-package treemacs-projectile
   :after treemacs projectile
   :ensure t)
+#+end_src
 
-"
+** Neotree (Disabled)
+
 (use-package neotree
   :ensure t
   :config
   (setq neo-theme 'icons))
-"
-;; All the icons
 
+** All The Icons
+
+#+begin_src elisp
 (use-package all-the-icons
   :ensure t
   :config
   (setq all-the-icons-color-icons t))
+#+end_src
 
+** Doom Family
+  /"In the first age, in the first battle, when the shadows first lengthened, one stood. Burned by the embers of Armageddon, his soul blistered by the fires of Hell and tainted beyond ascension, he chose the path of perpetual torment. In his ravenous hatred he found no peace; and with boiling blood he scoured the Umbral Plains seeking vengeance against the dark lords who had wronged him. He wore the crown of the Night Sentinels, and those that tasted the bite of his sword named him... the Doom Slayer."/
+*** Modeline
 
-;; DOOM!
+#+begin_src elisp
 (use-package doom-modeline
   :ensure t
   :defer t
   :hook (after-init . doom-modeline-init))
+#+end_src
 
+*** Themes
+
+#+begin_src elisp
 (use-package doom-themes
   :ensure t
   :init
   (setq doom-themes-enable-bold t
 	doom-themes-enable-italic t))
+#+end_src
 
-;; Magit
+** Magit
+
+#+begin_src elisp
 (use-package magit
   :ensure t
   :config
   (global-set-key (kbd "C-c g") 'magit-status))
+#+end_src
 
-;; Git Gutter
+** Git Gutter (Diff-Hl)
 
+#+begin_src elisp
 (use-package diff-hl
   :ensure t
   :config
   (global-set-key (kbd "C-c d") 'diff-hl-mode)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (global-diff-hl-mode))
+#+end_src
 
-;; Linting
+** Flycheck (Linting)
+
+#+begin_src elisp
 (use-package flycheck
   :ensure t
   :config
@@ -195,23 +243,30 @@
   (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
   (global-flycheck-mode)
   )
+#+end_src
 
-;; Rainbow delimiters
+** Rainbow Delimiters
 
+#+begin_src elisp
 (use-package rainbow-delimiters
   :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+end_src
 
-;; Autopair
+** Autopair
 
+#+begin_src elisp
 (use-package autopair
   :ensure t
-  :config
+  :confign
   (autopair-global-mode))
+#+end_src
 
-;; Auto-complete
+** Modes & Auto Completion
+*** Company (Auto Complete)
 
+#+begin_src elisp
 (use-package company
 :ensure t
 :config
@@ -226,7 +281,11 @@
         (company-abbrev company-dabbrev)
         ))
 (global-company-mode t))
+#+end_src
 
+*** Jedi (Python)
+
+#+begin_src elisp
 (use-package company-jedi
     :ensure t
     :config
@@ -237,29 +296,44 @@
   (add-to-list 'company-backends 'company-jedi))
 
 (add-hook 'python-mode-hook 'my/python-mode-hook)
-;; File modes
+#+end_src
 
+*** JS2-Modee
+
+#+begin_src elisp
 (use-package js2-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
   ;; Better imenu
   (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
   :ensure t)
+#+end_src
 
+*** JS2-refactor
+
+#+begin_src elisp
 (use-package js2-refactor
   :config
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
   (js2r-add-keybindings-with-prefix "C-c C-r")
   (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
   :ensure t)
+#+end_src
 
+*** Xref-JS2
+
+#+begin_src elisp
 (use-package xref-js2
   :config
   (define-key js-mode-map (kbd "M-.") nil)
   (add-hook 'js2-mode-hook (lambda ()
 			     (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
   :ensure t)
+#+end_src
 
+*** RJSX-Mode
+
+#+begin_src elisp
 (use-package rjsx-mode
   :ensure t
   :config
@@ -267,7 +341,11 @@
 
   (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
   (add-to-list 'company-backends 'company-etags))
+#+end_src
 
+*** Company-Tern
+
+#+begin_src elisp
 (use-package company-tern
   :config
   (add-to-list 'company-backends 'company-tern)
@@ -277,7 +355,11 @@
   (define-key tern-mode-keymap (kbd "M-.") nil)
   (define-key tern-mode-keymap (kbd "M-,") nil)
   :ensure t)
+#+end_src
 
+*** Web-Mode
+
+#+begin_src elisp
 (use-package web-mode
   :ensure t
   :config
@@ -285,18 +367,34 @@
 
 (use-package json-mode
   :ensure t)
+#+end_src
 
+*** SASS-Mode
+
+#+begin_src elisp
 (use-package sass-mode
   :ensure t
   :config
   (add-to-list 'company-backends 'company-css))
+#+end_src
 
+*** Deferred
+
+#+begin_src elisp
 (use-package deferred
   :ensure t)
+#+end_src
 
+*** Python-Environment
+
+#+begin_src elisp
 (use-package python-environment
   :ensure t)
+#+end_src
 
+*** Markdown-Mode
+
+#+begin_src elisp
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
@@ -304,10 +402,11 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+#+end_src
 
+*** Org Mode <3
 
-;; Org Mode
-
+#+begin_src elisp
 (use-package org
   :ensure t
   :config
@@ -315,15 +414,25 @@
     :ensure t
     :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))))
+#+end_src
 
-;; Ace Jump
+*** YAML Mode
 
+#+begin_src elisp
+(use-package yaml-mode
+  :ensure t)
+#+end_src
+
+** Ace Jump
+
+#+begin_src elisp
 (use-package ace-jump-mode
   :ensure t
   :bind ("C-'" . ace-jump-mode))
+#+end_src
 
-;; Evil Mode
-"
+** Evil Mode (Disabled)
+
 (use-package evil
   :ensure t
   :config
@@ -335,45 +444,20 @@
     :config
     (global-evil-leader-mode)
     (evil-leader/set-key
-      \"]\" 'next-buffer
-      \"[\" 'previous-buffer
-      \"l\" 'neotree-toggle)))
+      "]" 'next-buffer
+      "[" 'previous-buffer
+      "l" 'neotree-toggle)))
 (add-hook 'neotree-mode-hook
     (lambda ()
-      (define-key evil-normal-state-local-map (kbd \"q\") 'neotree-hide)
-      (define-key evil-normal-state-local-map (kbd \"I\") 'neotree-hidden-file-toggle)
-      (define-key evil-normal-state-local-map (kbd \"z\") 'neotree-stretch-toggle)
-      (define-key evil-normal-state-local-map (kbd \"R\") 'neotree-refresh)
-      (define-key evil-normal-state-local-map (kbd \"m\") 'neotree-rename-node)
-      (define-key evil-normal-state-local-map (kbd \"c\") 'neotree-create-node)
-      (define-key evil-normal-state-local-map (kbd \"d\") 'neotree-delete-node)
+      (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+      (define-key evil-normal-state-local-map (kbd "I") 'neotree-hidden-file-toggle)
+      (define-key evil-normal-state-local-map (kbd "z") 'neotree-stretch-toggle)
+      (define-key evil-normal-state-local-map (kbd "R") 'neotree-refresh)
+      (define-key evil-normal-state-local-map (kbd "m") 'neotree-rename-node)
+      (define-key evil-normal-state-local-map (kbd "c") 'neotree-create-node)
+      (define-key evil-normal-state-local-map (kbd "d") 'neotree-delete-node)
 
-      (define-key evil-normal-state-local-map (kbd \"s\") 'neotree-enter-vertical-split)
-      (define-key evil-normal-state-local-map (kbd \"S\") 'neotree-enter-horizontal-split)
+      (define-key evil-normal-state-local-map (kbd "s") 'neotree-enter-vertical-split)
+      (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
 
-      (define-key evil-normal-state-local-map (kbd \"RET\") 'neotree-enter)))
-"
-
-(provide 'emacs)
-;;; .emacs ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (doom-city-lights)))
- '(custom-safe-themes
-   (quote
-    ("a566448baba25f48e1833d86807b77876a899fc0c3d33394094cf267c970749f" default)))
- '(js-indent-level 2)
- '(org-export-backends (quote (ascii html icalendar latex md odt)))
- '(package-selected-packages
-   (quote
-    (yaml-mode markdown-mode sass-mode json-mode web-mode company-tern rjsx-mode xref-js2 js2-refactor js2-mode company-jedi company autopair rainbow-delimiters flycheck magit doom-themes doom-modeline all-the-icons helm-projectile helm expand-region better-defaults use-package)))
- '(show-trailing-whitespace t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+      (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
