@@ -19,6 +19,7 @@
 (global-hl-line-mode 1)
 (setq-default indent-tabs-mode nil)
 (setq tab-width 2)
+(setq js-indent-level 2)
 (setq inhibit-startup-screen t)
 #+end_src
 
