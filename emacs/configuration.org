@@ -21,6 +21,7 @@
 (setq tab-width 2)
 (setq js-indent-level 2)
 (setq inhibit-startup-screen t)
+(setq-default show-trailing-whitespace t)
 #+end_src
 
 ** Font Config
@@ -371,10 +372,10 @@
   :ensure t)
 #+end_src
 
-*** SASS-Mode
+*** SCSS/CSS
 
 #+begin_src emacs-lisp
-(use-package sass-mode
+(use-package css-mode
   :ensure t
   :config
   (add-to-list 'company-backends 'company-css))
@@ -416,7 +417,8 @@
     :ensure t
     :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-    (eval-after-load "org" '(require 'ox-md nil t)))
+    (eval-after-load "org" '(require 'ox-md nil t))
+    (setq org-log-done 'time))
 #+end_src
 
 *** YAML Mode
