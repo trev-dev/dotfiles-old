@@ -17,11 +17,12 @@
 #+begin_src emacs-lisp
 (global-linum-mode 1)
 (global-hl-line-mode 1)
-(setq-default indent-tabs-mode nil)
-(setq tab-width 2)
-(setq js-indent-level 2)
 (setq inhibit-startup-screen t)
 (setq-default show-trailing-whitespace t)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq css-indent-offset 2)
+(setq js-indent-level 2)
 #+end_src
 
 ** Font Config
@@ -301,7 +302,7 @@
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 #+end_src
 
-*** JS2-Modee
+*** JS2-Mode
 
 #+begin_src emacs-lisp
 (use-package js2-mode
