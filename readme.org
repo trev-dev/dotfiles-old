@@ -23,7 +23,8 @@
 - [[/vim][Files & Readme]]
 - [[/vim/.vimrc][Config File]]
 
-** TODO Things that need fixing in this repo [1/3]
+** TODO Things that need fixing in this repo [1/4]
    - [ ] Convert config files into submodules (maybe)
    - [ ] Finish updating the documentation
+   - [ ] Update Tmux documentation (no more vim directional navigation)
    - [X] Convert .emacs into an org config loader
