@@ -20,7 +20,7 @@
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (ox-md yaml-mode xref-js2 web-mode use-package treemacs-projectile sass-mode rjsx-mode rainbow-delimiters origami org-bullets markdown-mode magit json-mode js2-refactor helm-projectile flycheck expand-region doom-themes doom-modeline diff-hl company-tern company-jedi better-defaults autopair ace-jump-mode))))
+    (helm-ag ox-md yaml-mode xref-js2 web-mode use-package treemacs-projectile sass-mode rjsx-mode rainbow-delimiters origami org-bullets markdown-mode magit json-mode js2-refactor helm-projectile flycheck expand-region doom-themes doom-modeline diff-hl company-tern company-jedi better-defaults autopair ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

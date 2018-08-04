@@ -100,8 +100,16 @@
   (require 'helm-config)
   :config
   (helm-mode 1)
+  (custom-set-variables '(helm-follow-mode-persistent t))
   (use-package helm-projectile
-    :ensure t))
+    :ensure t)
+  (use-package helm-ag
+    :ensure t
+    :bind (("C-c a g" . helm-do-ag)
+           ("C-c a t" . helm-do-ag-this-file)
+           ("C-c a p" . helm-do-ag-project-root)
+           ("C-c a b" . helm-do-ag-buffers)
+           ("C-c C-a p" . helm-projectile-ag))))
 #+end_src
 
 ** Treemacs
