@@ -266,6 +266,6 @@ exec_always feh --bg-scale /home/trevdev/.i3/wallpapers/archfoil.jpg
 exec compton -f -i 0.5
 #Apps
 exec dunst
-exec owncloud
+exec nextcloud
 exec blueman-applet
 exec xautolock -time 5 -corners -000 -cornersize 30 -locker ~/.i3/lock.sh
