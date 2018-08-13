@@ -40,24 +40,6 @@
 (setq initial-scratch-message "")
 #+end_src
 
-** Kill Annoying Buffers
-*** Messages
-
-#+begin_src emacs-lisp
-(setq-default message-log-max nil)
-(kill-buffer "*Messages*")
-#+end_src
-
-*** Completions
-
-#+begin_src emacs-lisp
-(add-hook 'minibuffer-exit-hook
-      '(lambda ()
-         (let ((buffer "*Completions*"))
-           (and (get-buffer buffer)
-                (kill-buffer buffer)))))
-#+end_src
-
 * Get & Configure 3rd Party Packages
 ** Use Package
 
@@ -422,11 +404,25 @@
 (use-package org
   :ensure t
   :config
+  (setq org-agenda-files (append
+  (file-expand-wildcards "~/Cloud/Orgs/*.org")))
   (use-package org-bullets
     :ensure t
     :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-    (eval-after-load "org" '(require 'ox-md nil t))
+  (use-package org-caldav
+    :ensure t
+    :config
+    (setq org-caldav-url "https://cloud.trevdev.ca/remote.php/dav/calendars/trevdev")
+    (setq org-caldav-calendar-id "org")
+    (setq org-caldav-inbox "~/Cloud/Orgs/caldav.org")
+    (setq org-caldav-files org-agenda-files)
+    (setq org-icalendar-timezone "America/Vancouver"))
+    (setq org-icalendar-alarm-time 1)
+    (setq org-icalendar-include-todo t)
+    (setq org-icalendar-use-deadline '(event-if-todo event-if-not-todo todo-due))
+    (setq org-icalendar-use-scheduled '(todo-start event-if-todo event-if-not-todo))
+  (eval-after-load "org" '(require 'ox-md nil t))
     (setq org-log-done 'time))
 #+end_src
 
