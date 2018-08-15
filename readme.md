@@ -1,11 +1,11 @@
 
 # Table of Contents
 
-1.  [Dotfile Configurations](#org2dd8837)
-    1.  [Things that need fixing in this repo <code>[1/4]</code>](#org997f035)
+1.  [Dotfile Configurations](#org8e79339)
+    1.  [Things that need fixing in this repo <code>[1/4]</code>](#orgadae0f5)
 
 
-<a id="org2dd8837"></a>
+<a id="org8e79339"></a>
 
 # Dotfile Configurations
 
@@ -43,12 +43,11 @@
     -   [Config File](./vim/.vimrc)
 
 
-<a id="org997f035"></a>
+<a id="orgadae0f5"></a>
 
 ## TODO Things that need fixing in this repo <code>[1/4]</code>
 
--   [ ] Convert config files into submodules (maybe)
--   [ ] Finish updating the documentation
+-   [ ] Finish updating the documentation. There are inaccuracies.
 -   [ ] Update Tmux documentation (no more vim directional navigation)
--   [X] Convert .emacs into an org config loader
+-   [x] Convert .emacs into an org config loader
 
