@@ -17,6 +17,7 @@
 #+begin_src emacs-lisp
 (global-linum-mode 1)
 (global-hl-line-mode 1)
+(global-visual-line-mode t)
 (setq inhibit-startup-screen t)
 (setq-default show-trailing-whitespace t)
 (setq-default indent-tabs-mode nil)
@@ -423,6 +424,10 @@
     (setq org-icalendar-use-deadline '(event-if-todo event-if-not-todo todo-due))
     (setq org-icalendar-use-scheduled '(todo-start event-if-todo event-if-not-todo))
   (eval-after-load "org" '(require 'ox-md nil t))
+  (use-package ox-gfm
+    :ensure t
+    :config
+    (eval-after-load "org" '(require 'ox-gfm nil t)))
     (setq org-log-done 'time))
 #+end_src
 
