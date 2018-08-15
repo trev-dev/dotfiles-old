@@ -23,8 +23,7 @@
 - [[./vim][Files & Readme]]
 - [[./vim/.vimrc][Config File]]
 
-** DONE Things that need fixing in this repo [3/3]
-   CLOSED: [2018-08-15 Wed 08:02]
-   - [X] Finish updating the documentation. There are inaccuracies.
+** TODO Things that need fixing in this repo [2/3]
+   - [ ] Write documentation for i3
    - [X] Update Tmux documentation (no more vim directional navigation)
    - [X] Convert .emacs into an org config loader

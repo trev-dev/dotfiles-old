@@ -1,10 +1,10 @@
 # Table of Contents
 
-1.  [Dotfile Configurations](#org90d2beb)
-    1.  [Things that need fixing in this repo <code>[3/3]</code>](#orga165df3)
+1.  [Dotfile Configurations](#org8ff503b)
+    1.  [Things that need fixing in this repo <code>[2/3]</code>](#orgf4c9949)
 
 
-<a id="org90d2beb"></a>
+<a id="org8ff503b"></a>
 
 # Dotfile Configurations
 
@@ -42,10 +42,10 @@
     -   [Config File](./vim/.vimrc)
 
 
-<a id="orga165df3"></a>
+<a id="orgf4c9949"></a>
 
-## DONE Things that need fixing in this repo <code>[3/3]</code>
+## TODO Things that need fixing in this repo <code>[2/3]</code>
 
--   [x] Finish updating the documentation. There are inaccuracies.
+-   [ ] Write documentation for i3
 -   [x] Update Tmux documentation (no more vim directional navigation)
 -   [x] Convert .emacs into an org config loader
