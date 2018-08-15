@@ -1,6 +1,6 @@
 * My bashrc setup.
 
-Heavily borrowed from [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
+Heavily borrowed from [[https://github.com/mathiasbynens/dotfiles][Mathias Bynens]]
 
 Backup your bashrc related files and copy all the dotfiles from here to your home directory. You may then copy all the bash dotfiles to your home and root-home directories.
 
