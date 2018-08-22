@@ -82,11 +82,11 @@ bindsym Mod4+Shift+Down move down
 bindsym Mod4+Shift+Up move up
 bindsym Mod4+Shift+Right move right
 
-# split in horizontal orientation
-bindsym Mod4+x split h
+# Toggle Splits
+bindsym Mod4+p split toggle
 
-# split in vertical orientation
-bindsym Mod4+v split v
+# Toggle Borders
+bindsym Mod4+b border toggle
 
 # enter fullscreen mode for the focused container
 bindsym Mod4+f fullscreen toggle
@@ -202,12 +202,13 @@ bindsym Mod4+r mode "resize"
 
 # Theme Colors -->
 
-set $bg-color            #2f343f
+set $bg-color            #464d5b
+set $bars-bg-color       #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $indicator           #515151
+set $indicator           #5294E2
 
 # window colors
 #                       border              background         text                 indicator
@@ -221,7 +222,7 @@ hide_edge_borders both
 new_window pixel 1
 
 # When you float a window manually, toggle the title bar
-exec ~/.i3/floatingtitles.py
+exec ~/.dotfiles/i3/floatingtitles.py
 
 gaps inner 5
 gaps outer 5
@@ -232,10 +233,10 @@ smart_gaps on
 bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
     colors {
-      background $bg-color
+      background $bars-bg-color
         separator          #757575
       # border             background         text
-        focused_workspace  $bg-color          $bg-color          $text-color
+        focused_workspace  $bars-bg-color     $bars-bg-color     $text-color
         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
     }
@@ -263,9 +264,12 @@ bindsym XF86AudioPrev exec playerctl previous
 # Autorun -->
 # Wallpaper
 exec_always feh --bg-scale /home/trevdev/.i3/wallpapers/archfoil.jpg
-exec compton -f -i 0.5
+exec compton -f -i 0.9
 #Apps
 exec dunst
-exec nextcloud
 exec blueman-applet
+exec /usr/lib/kdeconnectd
+exec --no-startup-id "sh -c 'sleep 5; exec nextcloud'"
+exec --no-startup-id "sh -c 'sleep 5; exec kdeconnect-indicator'"
+exec --no-startup-id "sh -c 'sleep 10; exec evolution'"
 exec xautolock -time 5 -corners -000 -cornersize 30 -locker ~/.i3/lock.sh
