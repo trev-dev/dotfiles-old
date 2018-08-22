@@ -43,7 +43,8 @@
 
 * Get & Configure 3rd Party Packages
 ** Use Package
-
+   The mother of all packages. Streamlines plugin installations and
+   config.
 #+begin_src emacs-lisp
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -53,24 +54,157 @@
   (require 'use-package))
 #+end_src
 
-** Better Defaults
+** Ace Jump
+   "Easy Motion" for emacs
+#+begin_src emacs-lisp
+(use-package ace-jump-mode
+  :ensure t
+  :bind ("C-'" . ace-jump-mode))
+#+end_src
 
+** All The Icons
+   Icon support
+#+begin_src emacs-lisp
+(use-package all-the-icons
+  :ensure t
+  :config
+  (setq all-the-icons-color-icons t))
+#+end_src
+
+** Better Defaults
+   Better default emacs settings
 #+begin_src emacs-lisp
 (use-package better-defaults
   :ensure t)
 #+end_src
 
-** Expand Region
-
+** Doom Family
+  /"In the first age, in the first battle, when the shadows first/
+  /lengthened, one stood. Burned by the embers of Armageddon, his soul/
+  /blistered by the fires of Hell and tainted beyond ascension, he/
+  /chose the path of perpetual torment. In his ravenous hatred he found/
+  /no peace; and with boiling blood he scoured the Umbral Plains/
+  /seeking vengeance against the dark lords who had wronged him. He/
+  /wore the crown of the Night Sentinels, and those that tasted the/
+  /bite of his sword named him... the Doom Slayer."/
+  ...Theming stuff
+*** Modeline
+    Modeline. Not sold on it yet, but it's nice enough
 #+begin_src emacs-lisp
-(use-package expand-region
+(use-package doom-modeline
+  :ensure t
+  :defer t
+  :hook (after-init . doom-modeline-init))
+#+end_src
+
+*** Themes
+    Doom Theme Bundle
+#+begin_src emacs-lisp
+(use-package doom-themes
+  :ensure t
+  :init
+  (setq doom-themes-enable-bold t
+	doom-themes-enable-italic t)
+        (load-theme 'doom-city-lights t))
+#+end_src
+
+** Emmet Mode
+   A must have for web development
+#+begin_src emacs-lisp
+(use-package emmet-mode
   :ensure t
   :config
-  (global-set-key (kbd "C-=") 'er/expand-region))
+  (add-hook 'sgml-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode)
+  (setq emmet-expand-jsx-className t))
+#+end_src
+
+** Evil Mode
+   I am evil!
+#+begin_src emacs-lisp
+    (use-package evil
+      :ensure t
+      :config
+      (evil-mode t)
+      (use-package evil-magit
+          :ensure t)
+      (use-package evil-leader
+        :ensure t
+        :config
+        (global-evil-leader-mode)
+        (evil-leader/set-key
+          "]" 'next-buffer
+          "[" 'previous-buffer
+          "l" 'treemacs)))
+  ;;   (add-hook 'neotree-mode-hook
+  ;;       (lambda ()
+  ;;         (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+  ;;         (define-key evil-normal-state-local-map (kbd "I") 'neotree-hidden-file-toggle)
+  ;;         (define-key evil-normal-state-local-map (kbd "z") 'neotree-stretch-toggle)
+  ;;         (define-key evil-normal-state-local-map (kbd "R") 'neotree-refresh)
+  ;;         (define-key evil-normal-state-local-map (kbd "m") 'neotree-rename-node)
+  ;;         (define-key evil-normal-state-local-map (kbd "c") 'neotree-create-node)
+  ;;         (define-key evil-normal-state-local-map (kbd "d") 'neotree-delete-node)
+
+  ;;         (define-key evil-normal-state-local-map (kbd "s") 'neotree-enter-vertical-split)
+  ;;         (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
+
+  ;;         (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))
+  ;; )
+#+end_src
+
+** Expand Region (Disabled)
+   Disabled as we do not require this with evil-mode keeping for
+   reference in case I change my mind. Expand region visual selection
+   between braces and quotes
+#+begin_src emacs-lisp
+  ;; (use-package expand-region
+  ;;   :ensure t
+  ;;   :config
+  ;;   (global-set-key (kbd "C-=") 'er/expand-region))
+#+end_src
+
+** Flycheck (Linting)
+
+#+begin_src emacs-lisp
+(use-package flycheck
+  :ensure t
+  :config
+  (setq-default flycheck-disabled-checker 'javascript-jshint)
+  (setq-default flycheck-disabled-checker 'json-jsonlist)
+  (setq-default flycheck-disabled-checker 'javascript-eslint)
+  (setq-default flycheck-javascript-eslint-executable "eslint-project-relative")
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+  (defun my/use-eslint-from-node-modules ()
+    (let* ((root (locate-dominating-file
+    (or (buffer-file-name) default-directory)
+      "node_modules"))
+      (eslint (and root
+      (expand-file-name "node_modules/eslint/bin/eslint.js"
+        root))))
+      (when (and eslint (file-executable-p eslint))
+    (setq-local flycheck-javascript-eslint-executable eslint))))
+  (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+  (global-flycheck-mode)
+  )
+#+end_src
+
+** Git Gutter (Diff-Hl)
+*** TODO Figure out how to get flydiff to work
+    Nicest looking "git gutter." Flydiff-mode is broken though. When
+    paired with Magit it eventually starts failing.
+#+begin_src emacs-lisp
+(use-package diff-hl
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c d") 'diff-hl-mode)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (global-diff-hl-mode))
 #+end_src
 
 ** Helm
-
+   Helm makes finding stuff a heck of a lot nicer, when paired with AG
+   especially. Requires system installation of the-silver-searcher.
 #+begin_src emacs-lisp
 (use-package helm
   :ensure t
@@ -95,8 +229,258 @@
            ("C-c C-a p" . helm-projectile-ag))))
 #+end_src
 
-** Treemacs
+** Magit
+   Amazing git repo management
+#+begin_src emacs-lisp
+(use-package magit
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c g") 'magit-status))
+#+end_src
 
+** Modes & Auto Completion
+*** Company (Auto Complete)
+
+#+begin_src emacs-lisp
+(use-package company
+:ensure t
+:config
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 3)
+(setq company-backends
+      '((company-files          ; files & directory
+         company-keywords       ; keywords
+         company-capf
+         company-yasnippet
+         )
+        (company-abbrev company-dabbrev)
+        ))
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+(global-company-mode t))
+#+end_src
+
+*** Company-Tern
+
+#+begin_src emacs-lisp
+(use-package company-tern
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-tern)
+  (add-hook 'js2-mode-hook (lambda ()
+			     (tern-mode)
+			     (company-mode)))
+  (define-key tern-mode-keymap (kbd "M-.") nil)
+  (define-key tern-mode-keymap (kbd "M-,") nil))
+#+end_src
+
+*** Deferred
+    Async elisp function support. Why did I install this?
+**** TODO: Figure out why I installed this
+#+begin_src emacs-lisp
+(use-package deferred
+  :ensure t)
+#+end_src
+
+*** Jedi (Python)
+
+#+begin_src emacs-lisp
+(use-package company-jedi
+    :ensure t
+    :config
+    (add-hook 'python-mode-hook 'jedi:setup))
+
+(defun my/python-mode-hook ()
+  "Company back-end hook for jedi."
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+#+end_src
+
+*** JS2-Mode
+
+#+begin_src emacs-lisp
+(use-package js2-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  ;; Better imenu
+  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+  :ensure t)
+#+end_src
+
+*** JS2-refactor
+
+#+begin_src emacs-lisp
+(use-package js2-refactor
+  :config
+  (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  (js2r-add-keybindings-with-prefix "C-c C-r")
+  (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+  :ensure t)
+#+end_src
+
+*** Markdown-Mode
+
+#+begin_src emacs-lisp
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+end_src
+
+*** Org Mode <3
+    This amazingly well documented Org config is here because of org
+    mode. As well as some semblence of structure in my life.
+#+begin_src emacs-lisp
+(use-package org
+  :ensure t
+  :config
+  (setq org-agenda-files (append
+  (file-expand-wildcards "~/Cloud/Orgs/*.org")))
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  (use-package org-caldav
+    :ensure t
+    :config
+    (setq org-caldav-url "https://cloud.trevdev.ca/remote.php/dav/calendars/trevdev")
+    (setq org-caldav-calendar-id "org")
+    (setq org-caldav-inbox "~/Cloud/Orgs/caldav.org")
+    (setq org-caldav-files org-agenda-files)
+    (setq org-icalendar-timezone "America/Vancouver"))
+    (setq org-icalendar-alarm-time 1)
+    (setq org-icalendar-include-todo t)
+    (setq org-icalendar-use-deadline '(event-if-todo event-if-not-todo todo-due))
+    (setq org-icalendar-use-scheduled '(todo-start event-if-todo event-if-not-todo))
+  (eval-after-load "org" '(require 'ox-md nil t))
+  (use-package ox-gfm
+    :ensure t
+    :config
+    (eval-after-load "org" '(require 'ox-gfm nil t)))
+    (setq org-log-done 'time))
+#+end_src
+
+*** Pug Mode
+    Pug html templating, for those who don't know. Used to be called
+    Jade. I don't endorse pug anymore, I just have it buried in old
+    projects.
+#+begin_src emacs-lisp
+(use-package pug-mode
+  :ensure t)
+#+end_src
+
+*** Python-Environment
+    Virtualenv support.
+#+begin_src emacs-lisp
+(use-package python-environment
+  :ensure t)
+#+end_src
+
+*** RJSX-Mode
+    React Development. Need I say more?
+#+begin_src emacs-lisp
+(use-package rjsx-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("containers\\/.*\\.js\\'" . rjsx-mode))
+
+  (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+  (add-to-list 'company-backends 'company-etags))
+#+end_src
+
+*** SCSS/CSS
+
+#+begin_src emacs-lisp
+(use-package css-mode
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-css))
+#+end_src
+
+*** Vue Mode
+    /"It's as if Angular & React had sex."/
+    =Maximilian Schwarzmüller=
+#+begin_src emacs-lisp
+(use-package vue-mode
+  :ensure t
+  :config
+  (add-hook 'js-mode-hook #'tern-mode)
+  (add-to-list 'vue-mode-hook #'tern-mode)
+  (setq mmm-js-mode-exit-hook (lambda () (setq tern-mode nil)))
+  (setq mmm-js-mode-enter-hook (lambda () (setq tern-mode t)))
+  (setq mmm-submode-decoration-level 0))
+#+end_src
+
+*** Web-Mode
+
+#+begin_src emacs-lisp
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-etags))
+
+(use-package json-mode
+  :ensure t)
+#+end_src
+
+*** Xref-JS2
+
+#+begin_src emacs-lisp
+(use-package xref-js2
+  :config
+  (define-key js-mode-map (kbd "M-.") nil)
+  (add-hook 'js2-mode-hook (lambda ()
+			     (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+  :ensure t)
+#+end_src
+
+*** YAML Mode
+
+#+begin_src emacs-lisp
+(use-package yaml-mode
+  :ensure t)
+#+end_src
+
+** Rainbow Delimiters
+   Nice, colorful, matching brackets.
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+end_src
+
+** Rainbow Identifiers (Disabled)
+   Saving for later. Trying to make identifiers nice. This plugin by
+   default works better than color-identifiers, but it colors
+   literally everything with little rhyme or reason. Don't want to
+   hack this at the moment.
+# #+begin_src emacs-lisp
+#   (use-package rainbow-identifiers
+#     :ensure t
+#     :config
+#     (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
+# #+end_src
+
+** Smartparens
+   Auto-wraps text in brackets/quotes. 
+#+begin_src emacs-lisp
+(use-package smartparens
+  :ensure t
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode t)
+  (use-package evil-smartparens
+    :ensure t
+    :config
+    (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)))
+#+end_src
+
+** Treemacs
+   Nerdtree on steroids
 #+begin_src emacs-lisp
 (use-package treemacs
   :ensure t
@@ -105,6 +489,8 @@
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :config
+  (use-package treemacs-evil
+    :ensure t)
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
           treemacs-deferred-git-apply-delay   0.5
@@ -157,322 +543,15 @@
   :ensure t)
 #+end_src
 
-** Neotree (Disabled)
-
-(use-package neotree
+** Yasnippet
+   Snippet support
+#+begin_src emacs-lisp
+(use-package yasnippet
   :ensure t
   :config
-  (setq neo-theme 'icons))
-
-** All The Icons
-
-#+begin_src emacs-lisp
-(use-package all-the-icons
-  :ensure t
-  :config
-  (setq all-the-icons-color-icons t))
+  (yas-global-mode 1)
+  (use-package yasnippet-snippets
+    :ensure t)
+  (yas-reload-all))
 #+end_src
 
-** Doom Family
-  /"In the first age, in the first battle, when the shadows first lengthened, one stood. Burned by the embers of Armageddon, his soul blistered by the fires of Hell and tainted beyond ascension, he chose the path of perpetual torment. In his ravenous hatred he found no peace; and with boiling blood he scoured the Umbral Plains seeking vengeance against the dark lords who had wronged him. He wore the crown of the Night Sentinels, and those that tasted the bite of his sword named him... the Doom Slayer."/
-*** Modeline
-
-#+begin_src emacs-lisp
-(use-package doom-modeline
-  :ensure t
-  :defer t
-  :hook (after-init . doom-modeline-init))
-#+end_src
-
-*** Themes
-
-#+begin_src emacs-lisp
-(use-package doom-themes
-  :ensure t
-  :init
-  (setq doom-themes-enable-bold t
-	doom-themes-enable-italic t)
-        (load-theme 'doom-city-lights t))
-#+end_src
-
-** Magit
-
-#+begin_src emacs-lisp
-(use-package magit
-  :ensure t
-  :config
-  (global-set-key (kbd "C-c g") 'magit-status))
-#+end_src
-
-** Git Gutter (Diff-Hl)
-
-#+begin_src emacs-lisp
-(use-package diff-hl
-  :ensure t
-  :config
-  (global-set-key (kbd "C-c d") 'diff-hl-mode)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (global-diff-hl-mode))
-#+end_src
-
-** Flycheck (Linting)
-
-#+begin_src emacs-lisp
-(use-package flycheck
-  :ensure t
-  :config
-  (setq-default flycheck-disabled-checker 'javascript-jshint)
-  (setq-default flycheck-disabled-checker 'json-jsonlist)
-  (setq-default flycheck-disabled-checker 'javascript-eslint)
-  (setq-default flycheck-javascript-eslint-executable "eslint-project-relative")
-  (flycheck-add-mode 'javascript-eslint 'web-mode)
-  (defun my/use-eslint-from-node-modules ()
-    (let* ((root (locate-dominating-file
-    (or (buffer-file-name) default-directory)
-      "node_modules"))
-      (eslint (and root
-      (expand-file-name "node_modules/eslint/bin/eslint.js"
-        root))))
-      (when (and eslint (file-executable-p eslint))
-    (setq-local flycheck-javascript-eslint-executable eslint))))
-  (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
-  (global-flycheck-mode)
-  )
-#+end_src
-
-** Rainbow Delimiters
-
-#+begin_src emacs-lisp
-(use-package rainbow-delimiters
-  :ensure t
-  :config
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
-#+end_src
-
-** Autopair
-
-#+begin_src emacs-lisp
-(use-package autopair
-  :ensure t
-  :config
-  (autopair-global-mode))
-#+end_src
-
-** Modes & Auto Completion
-*** Company (Auto Complete)
-
-#+begin_src emacs-lisp
-(use-package company
-:ensure t
-:config
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 3)
-(setq company-backends
-      '((company-files          ; files & directory
-         company-keywords       ; keywords
-         company-capf
-         company-yasnippet
-         )
-        (company-abbrev company-dabbrev)
-        ))
-(global-company-mode t))
-#+end_src
-
-*** Jedi (Python)
-
-#+begin_src emacs-lisp
-(use-package company-jedi
-    :ensure t
-    :config
-    (add-hook 'python-mode-hook 'jedi:setup))
-
-(defun my/python-mode-hook ()
-  "Company back-end hook for jedi."
-  (add-to-list 'company-backends 'company-jedi))
-
-(add-hook 'python-mode-hook 'my/python-mode-hook)
-#+end_src
-
-*** JS2-Mode
-
-#+begin_src emacs-lisp
-(use-package js2-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-  ;; Better imenu
-  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-  :ensure t)
-#+end_src
-
-*** JS2-refactor
-
-#+begin_src emacs-lisp
-(use-package js2-refactor
-  :config
-  (add-hook 'js2-mode-hook #'js2-refactor-mode)
-  (js2r-add-keybindings-with-prefix "C-c C-r")
-  (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-  :ensure t)
-#+end_src
-
-*** Xref-JS2
-
-#+begin_src emacs-lisp
-(use-package xref-js2
-  :config
-  (define-key js-mode-map (kbd "M-.") nil)
-  (add-hook 'js2-mode-hook (lambda ()
-			     (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-  :ensure t)
-#+end_src
-
-*** RJSX-Mode
-
-#+begin_src emacs-lisp
-(use-package rjsx-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("containers\\/.*\\.js\\'" . rjsx-mode))
-
-  (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
-  (add-to-list 'company-backends 'company-etags))
-#+end_src
-
-*** Company-Tern
-
-#+begin_src emacs-lisp
-(use-package company-tern
-  :config
-  (add-to-list 'company-backends 'company-tern)
-  (add-hook 'js2-mode-hook (lambda ()
-			     (tern-mode)
-			     (company-mode)))
-  (define-key tern-mode-keymap (kbd "M-.") nil)
-  (define-key tern-mode-keymap (kbd "M-,") nil)
-  :ensure t)
-#+end_src
-
-*** Web-Mode
-
-#+begin_src emacs-lisp
-(use-package web-mode
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-etags))
-
-(use-package json-mode
-  :ensure t)
-#+end_src
-
-*** SCSS/CSS
-
-#+begin_src emacs-lisp
-(use-package css-mode
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-css))
-#+end_src
-
-*** Deferred
-
-#+begin_src emacs-lisp
-(use-package deferred
-  :ensure t)
-#+end_src
-
-*** Python-Environment
-
-#+begin_src emacs-lisp
-(use-package python-environment
-  :ensure t)
-#+end_src
-
-*** Markdown-Mode
-
-#+begin_src emacs-lisp
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-#+end_src
-
-*** Org Mode <3
-
-#+begin_src emacs-lisp
-(use-package org
-  :ensure t
-  :config
-  (setq org-agenda-files (append
-  (file-expand-wildcards "~/Cloud/Orgs/*.org")))
-  (use-package org-bullets
-    :ensure t
-    :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-  (use-package org-caldav
-    :ensure t
-    :config
-    (setq org-caldav-url "https://cloud.trevdev.ca/remote.php/dav/calendars/trevdev")
-    (setq org-caldav-calendar-id "org")
-    (setq org-caldav-inbox "~/Cloud/Orgs/caldav.org")
-    (setq org-caldav-files org-agenda-files)
-    (setq org-icalendar-timezone "America/Vancouver"))
-    (setq org-icalendar-alarm-time 1)
-    (setq org-icalendar-include-todo t)
-    (setq org-icalendar-use-deadline '(event-if-todo event-if-not-todo todo-due))
-    (setq org-icalendar-use-scheduled '(todo-start event-if-todo event-if-not-todo))
-  (eval-after-load "org" '(require 'ox-md nil t))
-  (use-package ox-gfm
-    :ensure t
-    :config
-    (eval-after-load "org" '(require 'ox-gfm nil t)))
-    (setq org-log-done 'time))
-#+end_src
-
-*** YAML Mode
-
-#+begin_src emacs-lisp
-(use-package yaml-mode
-  :ensure t)
-#+end_src
-
-** Ace Jump
-
-#+begin_src emacs-lisp
-(use-package ace-jump-mode
-  :ensure t
-  :bind ("C-'" . ace-jump-mode))
-#+end_src
-
-** Evil Mode (Disabled)
-
-(use-package evil
-  :ensure t
-  :config
-  (evil-mode t)
-  (use-package evil-magit
-      :ensure t)
-  (use-package evil-leader
-    :ensure t
-    :config
-    (global-evil-leader-mode)
-    (evil-leader/set-key
-      "]" 'next-buffer
-      "[" 'previous-buffer
-      "l" 'neotree-toggle)))
-(add-hook 'neotree-mode-hook
-    (lambda ()
-      (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-      (define-key evil-normal-state-local-map (kbd "I") 'neotree-hidden-file-toggle)
-      (define-key evil-normal-state-local-map (kbd "z") 'neotree-stretch-toggle)
-      (define-key evil-normal-state-local-map (kbd "R") 'neotree-refresh)
-      (define-key evil-normal-state-local-map (kbd "m") 'neotree-rename-node)
-      (define-key evil-normal-state-local-map (kbd "c") 'neotree-create-node)
-      (define-key evil-normal-state-local-map (kbd "d") 'neotree-delete-node)
-
-      (define-key evil-normal-state-local-map (kbd "s") 'neotree-enter-vertical-split)
-      (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
-
-      (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
