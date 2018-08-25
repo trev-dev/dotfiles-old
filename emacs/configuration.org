@@ -31,7 +31,7 @@
 #+begin_src emacs-lisp
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
-(add-to-list 'default-frame-alist '(font . "Fira Code Medium" ))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro Semibold" ))
 (set-face-attribute 'default t :font "Fira Code Medium" )
 #+end_src
 
@@ -39,6 +39,15 @@
 
 #+begin_src emacs-lisp
 (setq initial-scratch-message "")
+#+end_src
+
+** Other
+   Some tweaks to built-ins that I enjoy. Namely, auto pairing and
+   code folding.
+#+begin_src emacs-lisp
+(electric-pair-mode 1)
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+(global-auto-revert-mode)
 #+end_src
 
 * Get & Configure 3rd Party Packages
@@ -199,7 +208,8 @@
   :config
   (global-set-key (kbd "C-c d") 'diff-hl-mode)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (global-diff-hl-mode))
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode))
 #+end_src
 
 ** Helm
@@ -468,15 +478,15 @@
 ** Smartparens
    Auto-wraps text in brackets/quotes. 
 #+begin_src emacs-lisp
-(use-package smartparens
-  :ensure t
-  :config
-  (require 'smartparens-config)
-  (smartparens-global-mode t)
-  (use-package evil-smartparens
-    :ensure t
-    :config
-    (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)))
+  ;; (use-package smartparens
+  ;;   :ensure t
+  ;;   :config
+  ;;   (require 'smartparens-config)
+  ;;   (smartparens-global-mode t)
+  ;;   (use-package evil-smartparens
+  ;;     :ensure t
+  ;;     :config
+  ;;     (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)))
 #+end_src
 
 ** Treemacs
