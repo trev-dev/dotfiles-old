@@ -7,3 +7,7 @@ alias ll='ls -la'
 
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'
+
+## Use Neovim
+alias vim='nvim'
+alias vi='nvim'
