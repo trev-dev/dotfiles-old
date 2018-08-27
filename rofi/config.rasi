@@ -3,7 +3,7 @@ configuration {
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-/*	font: "mono 12";*/
+	font: "Source Code Pro Semibold 12";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -50,7 +50,7 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "~/.dotfiles/rofi/arcdark.rasi";
+	theme: "~/.dotfiles/rofi/onedark.rasi";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
