@@ -1,87 +1,87 @@
-! Background
-URxvt.depth: 32
-URxvt.background: [90]#1d1f27
-URxvt.foreground: #DEDEDE
-
-! UI
-URxvt.scrollBar: false
-URxvt.cursorBlink: true
-URxvt.cursorColor: #EEEEEE
-
-! Perls
-URxvt.perl-ext-common: font-size,keyboard-select,url-select,vtwheel
-
-! Font Size
-URxvt.keysym.C-Up:     font-size:increase
-URxvt.keysym.C-Down:   font-size:decrease
-URxvt.keysym.C-S-Up:   font-size:incglobal
-URxvt.keysym.C-S-Down: font-size:decglobal
-URxvt.keysym.C-equal:  font-size:reset
-URxvt.keysym.C-slash:  font-size:show
-! Keyboard Select
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-! Url Select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.underline: true
-
-! Font
-URxvt.font: xft:Source Code Pro Semibold:size=12
-
-! colors
-URxvt.cursorColor:  #b3bdcb
-URxvt.foreground: #b3bdcb
-! Black + DarkGrey
-URxvt.color0:  #404552
-URxvt.color8:  #2a303b
-! DarkRed + Red
-URxvt.color1:  #cc575d
-URxvt.color9:  #a3464a
-! DarkGreen + Green
-URxvt.color2:  #2679db
-URxvt.color10: #75a9e8
-! DarkYellow + Yellow
-URxvt.color3:  #b3bdcb
-URxvt.color11: #CAD1DB
-! DarkBlue + Blue
-URxvt.color4:  #5294e2
-URxvt.color12: #97bfee
-! DarkMagenta + Magenta
-URxvt.color5:  #404552
-URxvt.color13: #686d79
-! DarkCyan + Cyan
-URxvt.color6:  #b3bdcb
-URxvt.color14: #383c4a
-! LightGrey + White
-URxvt.color7:  #E1E5EA
-URxvt.color15: #ffffff
-! for 256 color stuff
-URxvt.color24:  #076678
-URxvt.color66:  #427b58
-URxvt.color88:  #9d0006
-URxvt.color96:  #8f3f71
-URxvt.color100: #79740e
-URxvt.color108: #8ec07c
-URxvt.color109: #83a598
-URxvt.color130: #af3a03
-URxvt.color136: #b57614
-URxvt.color142: #b8bb26
-URxvt.color167: #fb4934
-URxvt.color175: #d3869b
-URxvt.color208: #fe8019
-URxvt.color214: #fabd2f
-URxvt.color223: #ebdbb2
-URxvt.color228: #f4e8ba
-URxvt.color229: #fdf4c1
-URxvt.color230: #ffffc8
-URxvt.color234: #1d2021
-URxvt.color235: #404552
-URxvt.color236: #32302f
-URxvt.color237: #3c3836
-URxvt.color239: #504945
-URxvt.color241: #665c54
-URxvt.color243: #7c6f64
-URxvt.color244: #928374
-URxvt.color245: #928374
-URxvt.color246: #a89984
-URxvt.color248: #bdae93
-URxvt.color250: #d5c4a1
+!! Background
+!URxvt.depth: 32
+!URxvt.background: [90]#1d1f27
+!URxvt.foreground: #DEDEDE
+!
+!! UI
+!URxvt.scrollBar: false
+!URxvt.cursorBlink: true
+!URxvt.cursorColor: #EEEEEE
+!
+!! Perls
+!URxvt.perl-ext-common: font-size,keyboard-select,url-select,vtwheel
+!
+!! Font Size
+!URxvt.keysym.C-Up:     font-size:increase
+!URxvt.keysym.C-Down:   font-size:decrease
+!URxvt.keysym.C-S-Up:   font-size:incglobal
+!URxvt.keysym.C-S-Down: font-size:decglobal
+!URxvt.keysym.C-equal:  font-size:reset
+!URxvt.keysym.C-slash:  font-size:show
+!! Keyboard Select
+!URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! Url Select
+!URxvt.keysym.M-u: perl:url-select:select_next
+!URxvt.url-select.underline: true
+!
+!! Font
+!URxvt.font: xft:Source Code Pro Semibold:size=12
+!
+!! colors
+!URxvt.cursorColor:  #b3bdcb
+!URxvt.foreground: #b3bdcb
+!! Black + DarkGrey
+!URxvt.color0:  #404552
+!URxvt.color8:  #2a303b
+!! DarkRed + Red
+!URxvt.color1:  #cc575d
+!URxvt.color9:  #a3464a
+!! DarkGreen + Green
+!URxvt.color2:  #2679db
+!URxvt.color10: #75a9e8
+!! DarkYellow + Yellow
+!URxvt.color3:  #b3bdcb
+!URxvt.color11: #CAD1DB
+!! DarkBlue + Blue
+!URxvt.color4:  #5294e2
+!URxvt.color12: #97bfee
+!! DarkMagenta + Magenta
+!URxvt.color5:  #404552
+!URxvt.color13: #686d79
+!! DarkCyan + Cyan
+!URxvt.color6:  #b3bdcb
+!URxvt.color14: #383c4a
+!! LightGrey + White
+!URxvt.color7:  #E1E5EA
+!URxvt.color15: #ffffff
+!! for 256 color stuff
+!URxvt.color24:  #076678
+!URxvt.color66:  #427b58
+!URxvt.color88:  #9d0006
+!URxvt.color96:  #8f3f71
+!URxvt.color100: #79740e
+!URxvt.color108: #8ec07c
+!URxvt.color109: #83a598
+!URxvt.color130: #af3a03
+!URxvt.color136: #b57614
+!URxvt.color142: #b8bb26
+!URxvt.color167: #fb4934
+!URxvt.color175: #d3869b
+!URxvt.color208: #fe8019
+!URxvt.color214: #fabd2f
+!URxvt.color223: #ebdbb2
+!URxvt.color228: #f4e8ba
+!URxvt.color229: #fdf4c1
+!URxvt.color230: #ffffc8
+!URxvt.color234: #1d2021
+!URxvt.color235: #404552
+!URxvt.color236: #32302f
+!URxvt.color237: #3c3836
+!URxvt.color239: #504945
+!URxvt.color241: #665c54
+!URxvt.color243: #7c6f64
+!URxvt.color244: #928374
+!URxvt.color245: #928374
+!URxvt.color246: #a89984
+!URxvt.color248: #bdae93
+!URxvt.color250: #d5c4a1
