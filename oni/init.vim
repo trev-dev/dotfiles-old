@@ -18,16 +18,17 @@ Plug 'posva/vim-vue'
 Plug 'cakebaker/scss-syntax.vim'
 " Quality of Life
 Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe'
 Plug 'mattn/emmet-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'dhruvasagar/vim-dotoo'
 Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-surround'
 " Themes
 Plug 'agreco/vim-citylights'
 Plug 'arcticicestudio/nord-vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'sonph/onehalf'
@@ -35,6 +36,7 @@ Plug 'jnurmine/Zenburn'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jacoborus/tender.vim'
 Plug 'gosukiwi/vim-atom-dark'
+Plug 'kaicataldo/material.vim'
 call plug#end()
 
 " Indentation
@@ -64,8 +66,6 @@ let g:jsx_ext_required = 0
 
 " Vim Todo Agenda
 let g:dotoo#agenda#files = ['~/Cloud/Orgs/*.org']
-" Preferences
-set number
 
 " Buffers
 nmap <leader>l :ls<CR>:b<space>
@@ -75,6 +75,22 @@ nmap <leader>bd :bd<CR>
 nmap <leader>bda :bd <C-a><CR>
 nmap <leader>bds :b#<bar>bd#<CR>
 
+" Theme Stuff
+set background=dark
+colorscheme material
+let g:material_theme_style = 'dark'
+" Oni Stuff
+set number
+set noswapfile
+set smartcase
 
+" Turn off statusbar, because it is externalized
+set noshowmode
+set noruler
+set laststatus=0
+set noshowcmd
+
+" Enable GUI mouse behavior
+set mouse=a
 " Whitespace Character Toggle
 nmap <leader>s :set list!<CR>
