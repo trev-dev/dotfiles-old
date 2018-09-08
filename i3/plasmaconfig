@@ -206,7 +206,7 @@ bindsym Mod4+r mode "resize"
 
 # Theme Colors -->
 
-set $bg-color            #373b41
+set $bg-color            #5d646d
 set $bars-bg-color       #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -244,9 +244,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -257,10 +257,13 @@ bindsym XF86AudioPrev exec playerctl previous
 # Autorun -->
 # Wallpaper
 exec_always feh --bg-scale /home/trevdev/.i3/wallpapers/archfoil.jpg
-exec compton -b
+
+# Disabled Compton: Too many problems with full screen windows :(
+# exec compton -b
 
 #Apps
 exec --no-startup-id "sh -c 'sleep 5; exec nextcloud'"
+exec ibus-daemon
 
 # Plasma Overrides
 
