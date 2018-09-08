@@ -15,7 +15,7 @@
 ** Layout & Indentation
 
 #+begin_src emacs-lisp
-(global-linum-mode 1)
+(global-display-line-numbers-mode)
 (global-hl-line-mode 1)
 (global-visual-line-mode t)
 (setq inhibit-startup-screen t)
@@ -45,7 +45,6 @@
    Some tweaks to built-ins that I enjoy. Namely, auto pairing and
    code folding.
 #+begin_src emacs-lisp
-(electric-pair-mode 1)
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (global-auto-revert-mode)
 #+end_src
@@ -137,6 +136,16 @@
       (evil-mode t)
       (use-package evil-magit
           :ensure t)
+      (use-package evil-org
+          :ensure t
+          :after org
+          :config
+          (add-hook 'org-mode-hook 'evil-org-mode)
+          (add-hook 'evil-org-mode-hook
+          (lambda ()
+                (evil-org-set-key-theme)))
+                (require 'evil-org-agenda)
+                (evil-org-agenda-set-keys))
       (use-package evil-leader
         :ensure t
         :config
@@ -198,18 +207,27 @@
   )
 #+end_src
 
-** Git Gutter (Diff-Hl)
-*** TODO Figure out how to get flydiff to work
-    Nicest looking "git gutter." Flydiff-mode is broken though. When
-    paired with Magit it eventually starts failing.
+** Git Gutter
+
 #+begin_src emacs-lisp
-(use-package diff-hl
+(use-package git-gutter
   :ensure t
   :config
-  (global-set-key (kbd "C-c d") 'diff-hl-mode)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (global-diff-hl-mode)
-  (diff-hl-flydiff-mode))
+  (global-git-gutter-mode t)
+  (global-set-key (kbd "C-x C-g") 'git-gutter)
+  (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
+
+  ;; Jump to next/previous hunk
+  (global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
+  (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
+
+  ;; Stage current hunk
+  (global-set-key (kbd "C-x v s") 'git-gutter:stage-hunk)
+
+  ;; Revert current hunk
+  (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+  (custom-set-variables
+    '(git-gutter:update-interval 2)))
 #+end_src
 
 ** Helm
@@ -478,15 +496,15 @@
 ** Smartparens
    Auto-wraps text in brackets/quotes. 
 #+begin_src emacs-lisp
-  ;; (use-package smartparens
-  ;;   :ensure t
-  ;;   :config
-  ;;   (require 'smartparens-config)
-  ;;   (smartparens-global-mode t)
-  ;;   (use-package evil-smartparens
-  ;;     :ensure t
-  ;;     :config
-  ;;     (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)))
+  (use-package smartparens
+    :ensure t
+    :config
+    (require 'smartparens-config)
+    (smartparens-global-mode t)
+    (use-package evil-smartparens
+      :ensure t
+      :config
+      (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)))
 #+end_src
 
 ** Themes
