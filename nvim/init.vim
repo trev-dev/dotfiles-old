@@ -1,7 +1,6 @@
 set nocompatible              " be iMproved, required
 set encoding=utf-8
 call plug#begin('~/.local/share/nvim/plugged')
-
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -17,13 +16,20 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
 Plug 'cakebaker/scss-syntax.vim'
 " Quality of Life
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'dhruvasagar/vim-dotoo'
 Plug 'jceb/vim-orgmode'
-Plug 'Valloric/YouCompleteMe'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Themes
 Plug 'agreco/vim-citylights'
 Plug 'arcticicestudio/nord-vim'
@@ -57,6 +63,18 @@ let g:ale_fixers = {'javascript': ['eslint']}
 let g:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
 let b:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
 
+" Airline
+let g:airline#extensions#tabline#enabled = 0
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='onedark'
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+" Emmet Leader
+let g:user_emmet_leader_key='<C-m>'
+
 " vim-javascript
 let g:javascript_plugin_flow = 1
 
@@ -66,6 +84,13 @@ let g:jsx_ext_required = 0
 " Preferences
 set number
 
+""""""" Mappings
+nmap <C-b> :NERDTreeToggle<CR>
+
+" Use tab completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Buffers
 nmap <leader>l :ls<CR>:b<space>
 nmap <leader>] :bn!<CR>
@@ -73,6 +98,17 @@ nmap <leader>[ :bp!<CR>
 nmap <leader>bd :bd<CR>
 nmap <leader>bda :bd <C-a><CR>
 nmap <leader>bds :b#<bar>bd#<CR>
+
+" Fugitive
+nmap <leader>gs :Gstatus<CR>
+
+" FZF
+nmap <leader>ff :Files<CR>
+nmap <leader>fb :Buffers<CR>
+nmap <leader>fg :GFiles<CR>
+nmap <leader>fc :Colors<CR>
+nmap <leader>fa :Ag<CR>
+nmap <leader>fr :Rg<CR>
 
 " Whitespace Character Toggle
 nmap <leader>s :set list!<CR>
