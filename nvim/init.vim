@@ -23,6 +23,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'dhruvasagar/vim-dotoo'
 Plug 'jceb/vim-orgmode'
+Plug 'Valloric/YouCompleteMe'
 " Themes
 Plug 'agreco/vim-citylights'
 Plug 'arcticicestudio/nord-vim'
