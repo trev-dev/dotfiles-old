@@ -24,6 +24,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'dhruvasagar/vim-dotoo'
 Plug 'jceb/vim-orgmode'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -69,8 +73,16 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
 
+" Language Server
+let g:LanguageClient_serverCommands = {
+  \ 'javascript': ['~/.npm-global/bin/javascript-typescript-stdio'],
+  \ 'javascript.jsx': ['javascript-typescript-stdio']
+  \ }
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#source('LanguageClient',
+            \ 'min_pattern_length',
+            \ 2)
 
 " Emmet Leader
 let g:user_emmet_leader_key='<C-m>'
