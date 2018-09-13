@@ -17,14 +17,16 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
 Plug 'cakebaker/scss-syntax.vim'
 " Quality of Life
+Plug 'bronson/vim-trailing-whitespace' 
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe'
 Plug 'mattn/emmet-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'plytophogy/vim-virtualenv'
-Plug 'dhruvasagar/vim-dotoo'
-Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " Themes
 Plug 'agreco/vim-citylights'
 Plug 'arcticicestudio/nord-vim'
@@ -40,14 +42,13 @@ Plug 'kaicataldo/material.vim'
 call plug#end()
 
 " Indentation
-" Add ability to see whitespace/eol
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-" Tab Sizes
-" By default, the indent is 2 spaces.
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+
+" Add ability to see whitespace/eol
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " Python
 autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
@@ -64,16 +65,35 @@ let g:javascript_plugin_flow = 1
 " vim-jsx
 let g:jsx_ext_required = 0
 
-" Vim Todo Agenda
-let g:dotoo#agenda#files = ['~/Cloud/Orgs/*.org']
+""""""" Key Mappings
+" NerdTree
+nmap <leader>l :NERDTreeToggle<CR>
+
+" Fugitive
+nmap <leader>gs :Gstatus<CR>
 
 " Buffers
-nmap <leader>l :ls<CR>:b<space>
 nmap <leader>] :bn!<CR>
 nmap <leader>[ :bp!<CR>
+nmap <C-S-]> :tabprevious<CR>
+nmap <C-S-[> :tabnext<CR>
 nmap <leader>bd :bd<CR>
 nmap <leader>bda :bd <C-a><CR>
 nmap <leader>bds :b#<bar>bd#<CR>
+
+" Emmet Leader
+let g:user_emmet_leader_key='<C-m>'
+
+" FZF
+nmap <leader>ff :Files<CR>
+nmap <leader>fb :Buffers<CR>
+nmap <leader>fg :GFiles<CR>
+nmap <leader>fc :Colors<CR>
+nmap <leader>fa :Ag<CR>
+nmap <leader>fr :Rg<CR>
+
+" Toggle relative number
+nmap <leader>r :set relativenumber!<CR>
 
 " Theme Stuff
 set background=dark
@@ -81,6 +101,7 @@ colorscheme material
 let g:material_theme_style = 'dark'
 " Oni Stuff
 set number
+set relativenumber
 set noswapfile
 set smartcase
 
