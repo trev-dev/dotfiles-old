@@ -15,6 +15,7 @@
 ** Layout & Indentation
 
 #+begin_src emacs-lisp
+(setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
 (global-hl-line-mode 1)
 (global-visual-line-mode t)
@@ -113,7 +114,7 @@
   :init
   (setq doom-themes-enable-bold t
 	doom-themes-enable-italic t)
-        (load-theme 'doom-city-lights t))
+        (load-theme 'doom-tomorrow-night t))
 #+end_src
 
 ** Emmet Mode
@@ -287,22 +288,7 @@
 (global-company-mode t))
 #+end_src
 
-*** Company-Tern
-
-#+begin_src emacs-lisp
-(use-package company-tern
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-tern)
-  (add-hook 'js2-mode-hook (lambda ()
-			     (tern-mode)
-			     (company-mode)))
-  (define-key tern-mode-keymap (kbd "M-.") nil)
-  (define-key tern-mode-keymap (kbd "M-,") nil))
-#+end_src
-
 *** Deferred
-    Async elisp function support. Why did I install this?
 **** TODO: Figure out why I installed this
 #+begin_src emacs-lisp
 (use-package deferred
@@ -312,16 +298,16 @@
 *** Jedi (Python)
 
 #+begin_src emacs-lisp
-(use-package company-jedi
-    :ensure t
-    :config
-    (add-hook 'python-mode-hook 'jedi:setup))
+  ;; (use-package company-jedi
+  ;;     :ensure t
+  ;;     :config
+  ;;     (add-hook 'python-mode-hook 'jedi:setup))
 
-(defun my/python-mode-hook ()
-  "Company back-end hook for jedi."
-  (add-to-list 'company-backends 'company-jedi))
+  ;; (defun my/python-mode-hook ()
+  ;;   "Company back-end hook for jedi."
+  ;;   (add-to-list 'company-backends 'company-jedi))
 
-(add-hook 'python-mode-hook 'my/python-mode-hook)
+  ;; (add-hook 'python-mode-hook 'my/python-mode-hook)
 #+end_src
 
 *** JS2-Mode
@@ -344,6 +330,32 @@
   (js2r-add-keybindings-with-prefix "C-c C-r")
   (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
   :ensure t)
+#+end_src
+
+*** LSP
+
+#+begin_src emacs-lisp
+(use-package lsp-mode
+  :ensure t
+  :config
+  (use-package lsp-ui
+    :ensure t
+    :config
+    (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+  (use-package lsp-vue
+    :ensure t
+    :config
+    (add-hook 'vue-mode-hook #'lsp-vue-mmm-enable))
+  (use-package lsp-javascript-typescript
+    :ensure t
+    :config
+    (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+    (add-hook 'js2-mode-hook #'lsp-javascript-typescript-enable)
+    (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable))
+  (use-package lsp-python
+    :ensure t
+    :config
+    (add-hook 'python-mode-hook #'lsp-python-enable)))
 #+end_src
 
 *** Markdown-Mode
@@ -433,13 +445,7 @@
     =Maximilian Schwarzmüller=
 #+begin_src emacs-lisp
 (use-package vue-mode
-  :ensure t
-  :config
-  (add-hook 'js-mode-hook #'tern-mode)
-  (add-to-list 'vue-mode-hook #'tern-mode)
-  (setq mmm-js-mode-exit-hook (lambda () (setq tern-mode nil)))
-  (setq mmm-js-mode-enter-hook (lambda () (setq tern-mode t)))
-  (setq mmm-submode-decoration-level 0))
+  :ensure t)
 #+end_src
 
 *** Web-Mode
@@ -481,20 +487,9 @@
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 #+end_src
 
-** Rainbow Identifiers (Disabled)
-   Saving for later. Trying to make identifiers nice. This plugin by
-   default works better than color-identifiers, but it colors
-   literally everything with little rhyme or reason. Don't want to
-   hack this at the moment.
-# #+begin_src emacs-lisp
-#   (use-package rainbow-identifiers
-#     :ensure t
-#     :config
-#     (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
-# #+end_src
-
 ** Smartparens
-   Auto-wraps text in brackets/quotes. 
+   Auto-wraps text in brackets/quotes.
+
 #+begin_src emacs-lisp
   (use-package smartparens
     :ensure t
@@ -508,13 +503,9 @@
 #+end_src
 
 ** Themes
-   Other than the Doom theme family...
-*** Atom One Dark
+   Other than Doom...
 
 #+begin_src emacs-lisp
-(use-package atom-one-dark-theme
-:ensure t
-)
 #+end_src
 
 ** Treemacs
