@@ -114,7 +114,7 @@
   :init
   (setq doom-themes-enable-bold t
 	doom-themes-enable-italic t)
-        (load-theme 'doom-tomorrow-night t))
+        (load-theme 'doom-city-lights t))
 #+end_src
 
 ** Emmet Mode
@@ -211,24 +211,27 @@
 ** Git Gutter
 
 #+begin_src emacs-lisp
-(use-package git-gutter
-  :ensure t
-  :config
-  (global-git-gutter-mode t)
-  (global-set-key (kbd "C-x C-g") 'git-gutter)
-  (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
+  (use-package git-gutter
+    :ensure t
+    :config
+    (global-git-gutter-mode t)
+    (global-set-key (kbd "C-x C-g") 'git-gutter)
+    (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
 
-  ;; Jump to next/previous hunk
-  (global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
-  (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
+    ;; Jump to next/previous hunk
+    (global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
+    (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
 
-  ;; Stage current hunk
-  (global-set-key (kbd "C-x v s") 'git-gutter:stage-hunk)
+    ;; Stage current hunk
+    (global-set-key (kbd "C-x v s") 'git-gutter:stage-hunk)
 
-  ;; Revert current hunk
-  (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
-  (custom-set-variables
-    '(git-gutter:update-interval 2)))
+    ;; Revert current hunk
+    (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+    (custom-set-variables
+      '(git-gutter:update-interval 2)
+      '(git-gutter:modified-sign "▍") ;; two space
+      '(git-gutter:added-sign "▍")    ;; multiple character is OK
+      '(git-gutter:deleted-sign "▍")))
 #+end_src
 
 ** Helm
@@ -445,7 +448,9 @@
     =Maximilian Schwarzmüller=
 #+begin_src emacs-lisp
 (use-package vue-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq mmm-submode-decoration-level 0))
 #+end_src
 
 *** Web-Mode
