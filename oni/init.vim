@@ -16,8 +16,10 @@ Plug 'gko/vim-coloresque'
 Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
 " Quality of Life
-Plug 'bronson/vim-trailing-whitespace' 
+Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
@@ -91,6 +93,13 @@ nmap <leader>fg :GFiles<CR>
 nmap <leader>fc :Colors<CR>
 nmap <leader>fa :Ag<CR>
 nmap <leader>fr :Rg<CR>
+
+" Git Gutter
+let g:gitgutter_sign_added = '▍'
+let g:gitgutter_sign_modified = '▍'
+let g:gitgutter_sign_removed = '▍'
+let g:gitgutter_sign_removed_first_line = '▍'
+let g:gitgutter_sign_modified_removed = '▍'
 
 " Toggle relative number
 nmap <leader>r :set relativenumber!<CR>
