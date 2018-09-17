@@ -54,7 +54,7 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
 
 " Ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': []}
 let g:ale_fixers = {'javascript': ['eslint']}
 let g:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
 let b:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
