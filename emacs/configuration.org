@@ -25,6 +25,7 @@
 (setq-default tab-width 2)
 (setq css-indent-offset 2)
 (setq js-indent-level 2)
+(electric-pair-mode 1)
 #+end_src
 
 ** Font Config
@@ -490,27 +491,6 @@
   :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
-#+end_src
-
-** Smartparens
-   Auto-wraps text in brackets/quotes.
-
-#+begin_src emacs-lisp
-  (use-package smartparens
-    :ensure t
-    :config
-    (require 'smartparens-config)
-    (smartparens-global-mode t)
-    (use-package evil-smartparens
-      :ensure t
-      :config
-      (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)))
-#+end_src
-
-** Themes
-   Other than Doom...
-
-#+begin_src emacs-lisp
 #+end_src
 
 ** Treemacs
