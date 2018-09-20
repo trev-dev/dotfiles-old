@@ -154,7 +154,11 @@
         (evil-leader/set-key
           "]" 'next-buffer
           "[" 'previous-buffer
-          "l" 'treemacs)))
+          "l" 'treemacs))
+      (use-package evil-surround
+        :ensure t
+        :config
+        (global-evil-surround-mode 1)))
   ;;   (add-hook 'neotree-mode-hook
   ;;       (lambda ()
   ;;         (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
