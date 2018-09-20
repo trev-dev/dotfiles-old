@@ -114,8 +114,7 @@
   :ensure t
   :init
   (setq doom-themes-enable-bold t
-	doom-themes-enable-italic t)
-        (load-theme 'doom-city-lights t))
+	doom-themes-enable-italic t))
 #+end_src
 
 ** Emmet Mode
