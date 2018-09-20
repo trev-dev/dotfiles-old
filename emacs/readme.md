@@ -1,75 +1,74 @@
 
 # Table of Contents
 
-1.  [Get Repositories](#org1ac9123)
-2.  [Emacs Config Changes](#org5023289)
-    1.  [Layout & Indentation](#org4c08c3c)
-    2.  [Font Config](#org2b75685)
-    3.  [Empty Scratch](#org77b90a8)
-3.  [Get & Configure 3rd Party Packages](#org7bb8e79)
-    1.  [Use Package](#org72ba249)
-    2.  [Ace Jump](#org889b042)
-    3.  [All The Icons](#orge0b5b3e)
-    4.  [Better Defaults](#org0f8ed22)
-    5.  [Doom Family](#org2a27d58)
-        1.  [Modeline](#org1c50da0)
-        2.  [Themes](#org46ff82d)
-    6.  [Emmet Mode](#orgd80ef47)
-    7.  [Evil Mode](#org4113f5e)
-    8.  [Expand Region (Disabled)](#org71b971a)
-    9.  [Flycheck (Linting)](#org973a078)
-    10. [Git Gutter (Diff-Hl)](#org72f0e17)
-        1.  [Figure out how to get flydiff to work](#org0f4085b)
-    11. [Helm](#org2211db4)
-    12. [Magit](#org937aa1c)
-    13. [Modes & Auto Completion](#org6006830)
-        1.  [Company (Auto Complete)](#orgcd09341)
-        2.  [Company-Tern](#orgd163027)
-        3.  [Deferred](#orga482359)
-        4.  [Jedi (Python)](#org3225bdf)
-        5.  [JS2-Mode](#org5fa4c96)
-        6.  [JS2-refactor](#orgf66bb18)
-        7.  [Markdown-Mode](#org13d8463)
-        8.  [Org Mode <3](#org8fa8e5d)
-        9.  [Pug Mode](#org48d4598)
-        10. [Python-Environment](#orgb6d950a)
-        11. [RJSX-Mode](#org052e158)
-        12. [SCSS/CSS](#orgb3bfc25)
-        13. [Vue Mode](#orgac7f796)
-        14. [Web-Mode](#org13b8a10)
-        15. [Xref-JS2](#orga4178ff)
-        16. [YAML Mode](#org8870dbb)
-    14. [Rainbow Delimiters](#org93f07b4)
-    15. [Rainbow Identifiers (Disabled)](#org9a6e295)
-    16. [Smartparens](#orgbe83187)
-    17. [Treemacs](#orgf5ea9aa)
-    18. [Yasnippet](#org6cd8eac)
+1.  [Get Repositories](#orgcf5608d)
+2.  [Emacs Config Changes](#org603d15b)
+    1.  [Layout & Indentation](#org50c3b38)
+    2.  [Font Config](#org0add891)
+    3.  [Empty Scratch](#org2359db1)
+    4.  [Other](#orga4c258b)
+3.  [Get & Configure 3rd Party Packages](#orgcc05ef3)
+    1.  [Use Package](#org40cb2df)
+    2.  [Ace Jump](#org9a6dac3)
+    3.  [All The Icons](#orgbf6cffc)
+    4.  [Better Defaults](#org2b30be6)
+    5.  [Doom Family](#org381117e)
+        1.  [Modeline](#org0f7c523)
+        2.  [Themes](#org1aa4b6f)
+    6.  [Emmet Mode](#orgefc9927)
+    7.  [Evil Mode](#orga092c5e)
+    8.  [Expand Region (Disabled)](#org7ee5c93)
+    9.  [Flycheck (Linting)](#orgd648a6f)
+    10. [Git Gutter](#org08151b3)
+    11. [Helm](#org1d53a75)
+    12. [Magit](#org2bf89de)
+    13. [Modes & Auto Completion](#orga3dd075)
+        1.  [Company (Auto Complete)](#orgeed100d)
+        2.  [Deferred](#org3243577)
+        3.  [Jedi (Python)](#orgadba1df)
+        4.  [JS2-Mode](#orge05515b)
+        5.  [JS2-refactor](#orgd69083a)
+        6.  [LSP](#org10be970)
+        7.  [Markdown-Mode](#orgec87cf7)
+        8.  [Org Mode <3](#org47fcb7b)
+        9.  [Pug Mode](#orgc410ffe)
+        10. [Python-Environment](#org6ab5c11)
+        11. [RJSX-Mode](#org1e8f498)
+        12. [SCSS/CSS](#org59fd42c)
+        13. [Vue Mode](#orga5254f2)
+        14. [Web-Mode](#org93a3052)
+        15. [Xref-JS2](#org0fbc4df)
+        16. [YAML Mode](#org2d3bc10)
+    14. [Rainbow Delimiters](#orgaee9da3)
+    15. [Treemacs](#org936ec3e)
+    16. [Yasnippet](#orge7c7488)
 
 
-<a id="org1ac9123"></a>
+<a id="orgcf5608d"></a>
 
 # Get Repositories
 
     (require 'package)
-    
+
     (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                              ("marmalade" . "https://marmalade-repo.org/packages/")
                              ("melpa" . "https://melpa.org/packages/")))
-    
+
     (setq package-enable-at-startup nil)
     (package-initialize)
 
 
-<a id="org5023289"></a>
+<a id="org603d15b"></a>
 
 # Emacs Config Changes
 
 
-<a id="org4c08c3c"></a>
+<a id="org50c3b38"></a>
 
 ## Layout & Indentation
 
-    (global-linum-mode 1)
+    (setq display-line-numbers-type 'relative)
+    (global-display-line-numbers-mode)
     (global-hl-line-mode 1)
     (global-visual-line-mode t)
     (setq inhibit-startup-screen t)
@@ -78,31 +77,43 @@
     (setq-default tab-width 2)
     (setq css-indent-offset 2)
     (setq js-indent-level 2)
+    (electric-pair-mode 1)
 
 
-<a id="org2b75685"></a>
+<a id="org0add891"></a>
 
 ## Font Config
 
     (set-language-environment "UTF-8")
     (set-default-coding-systems 'utf-8)
-    (add-to-list 'default-frame-alist '(font . "Fira Code Medium" ))
-    (set-face-attribute 'default t :font "Fira Code Medium" )
+    (add-to-list 'default-frame-alist '(font . "Source Code Pro Semibold" ))
+    (set-face-attribute 'default t :font "Source Code Pro Semibold" )
 
 
-<a id="org77b90a8"></a>
+<a id="org2359db1"></a>
 
 ## Empty Scratch
 
     (setq initial-scratch-message "")
 
 
-<a id="org7bb8e79"></a>
+<a id="orga4c258b"></a>
+
+## Other
+
+Some tweaks to built-ins that I enjoy. Namely, auto pairing and
+code folding.
+
+    (add-hook 'prog-mode-hook #'hs-minor-mode)
+    (global-auto-revert-mode)
+
+
+<a id="orgcc05ef3"></a>
 
 # Get & Configure 3rd Party Packages
 
 
-<a id="org72ba249"></a>
+<a id="org40cb2df"></a>
 
 ## Use Package
 
@@ -112,12 +123,12 @@ config.
     (unless (package-installed-p 'use-package)
       (package-refresh-contents)
       (package-install 'use-package))
-    
+
     (eval-when-compile
       (require 'use-package))
 
 
-<a id="org889b042"></a>
+<a id="org9a6dac3"></a>
 
 ## Ace Jump
 
@@ -128,7 +139,7 @@ config.
       :bind ("C-'" . ace-jump-mode))
 
 
-<a id="orge0b5b3e"></a>
+<a id="orgbf6cffc"></a>
 
 ## All The Icons
 
@@ -140,7 +151,7 @@ Icon support
       (setq all-the-icons-color-icons t))
 
 
-<a id="org0f8ed22"></a>
+<a id="org2b30be6"></a>
 
 ## Better Defaults
 
@@ -150,7 +161,7 @@ Better default emacs settings
       :ensure t)
 
 
-<a id="org2a27d58"></a>
+<a id="org381117e"></a>
 
 ## Doom Family
 
@@ -165,7 +176,7 @@ Better default emacs settings
 &#x2026;Theming stuff
 
 
-<a id="org1c50da0"></a>
+<a id="org0f7c523"></a>
 
 ### Modeline
 
@@ -177,7 +188,7 @@ Modeline. Not sold on it yet, but it's nice enough
       :hook (after-init . doom-modeline-init))
 
 
-<a id="org46ff82d"></a>
+<a id="org1aa4b6f"></a>
 
 ### Themes
 
@@ -187,11 +198,10 @@ Doom Theme Bundle
       :ensure t
       :init
       (setq doom-themes-enable-bold t
-      doom-themes-enable-italic t)
-            (load-theme 'doom-city-lights t))
+      doom-themes-enable-italic t))
 
 
-<a id="orgd80ef47"></a>
+<a id="orgefc9927"></a>
 
 ## Emmet Mode
 
@@ -205,7 +215,7 @@ A must have for web development
       (setq emmet-expand-jsx-className t))
 
 
-<a id="org4113f5e"></a>
+<a id="orga092c5e"></a>
 
 ## Evil Mode
 
@@ -217,6 +227,16 @@ I am evil!
         (evil-mode t)
         (use-package evil-magit
             :ensure t)
+        (use-package evil-org
+            :ensure t
+            :after org
+            :config
+            (add-hook 'org-mode-hook 'evil-org-mode)
+            (add-hook 'evil-org-mode-hook
+            (lambda ()
+                  (evil-org-set-key-theme)))
+                  (require 'evil-org-agenda)
+                  (evil-org-agenda-set-keys))
         (use-package evil-leader
           :ensure t
           :config
@@ -224,7 +244,11 @@ I am evil!
           (evil-leader/set-key
             "]" 'next-buffer
             "[" 'previous-buffer
-            "l" 'treemacs)))
+            "l" 'treemacs))
+        (use-package evil-surround
+          :ensure t
+          :config
+          (global-evil-surround-mode 1)))
     ;;   (add-hook 'neotree-mode-hook
     ;;       (lambda ()
     ;;         (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
@@ -234,15 +258,15 @@ I am evil!
     ;;         (define-key evil-normal-state-local-map (kbd "m") 'neotree-rename-node)
     ;;         (define-key evil-normal-state-local-map (kbd "c") 'neotree-create-node)
     ;;         (define-key evil-normal-state-local-map (kbd "d") 'neotree-delete-node)
-    
+
     ;;         (define-key evil-normal-state-local-map (kbd "s") 'neotree-enter-vertical-split)
     ;;         (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
-    
+
     ;;         (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))
     ;; )
 
 
-<a id="org71b971a"></a>
+<a id="org7ee5c93"></a>
 
 ## Expand Region (Disabled)
 
@@ -256,7 +280,7 @@ between braces and quotes
     ;;   (global-set-key (kbd "C-=") 'er/expand-region))
 
 
-<a id="org973a078"></a>
+<a id="orgd648a6f"></a>
 
 ## Flycheck (Linting)
 
@@ -282,27 +306,34 @@ between braces and quotes
       )
 
 
-<a id="org72f0e17"></a>
+<a id="org08151b3"></a>
 
-## Git Gutter (Diff-Hl)
+## Git Gutter
 
-
-<a id="org0f4085b"></a>
-
-### TODO Figure out how to get flydiff to work
-
-Nicest looking "git gutter." Flydiff-mode is broken though. When
-paired with Magit it eventually starts failing.
-
-    (use-package diff-hl
+    (use-package git-gutter
       :ensure t
       :config
-      (global-set-key (kbd "C-c d") 'diff-hl-mode)
-      (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-      (global-diff-hl-mode))
+      (global-git-gutter-mode t)
+      (global-set-key (kbd "C-x C-g") 'git-gutter)
+      (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
+
+      ;; Jump to next/previous hunk
+      (global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
+      (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
+
+      ;; Stage current hunk
+      (global-set-key (kbd "C-x v s") 'git-gutter:stage-hunk)
+
+      ;; Revert current hunk
+      (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+      (custom-set-variables
+        '(git-gutter:update-interval 2)
+        '(git-gutter:modified-sign "▍") ;; two space
+        '(git-gutter:added-sign "▍")    ;; multiple character is OK
+        '(git-gutter:deleted-sign "▍")))
 
 
-<a id="org2211db4"></a>
+<a id="org1d53a75"></a>
 
 ## Helm
 
@@ -332,7 +363,7 @@ especially. Requires system installation of the-silver-searcher.
                ("C-c C-a p" . helm-projectile-ag))))
 
 
-<a id="org937aa1c"></a>
+<a id="org2bf89de"></a>
 
 ## Magit
 
@@ -344,12 +375,12 @@ Amazing git repo management
       (global-set-key (kbd "C-c g") 'magit-status))
 
 
-<a id="org6006830"></a>
+<a id="orga3dd075"></a>
 
 ## Modes & Auto Completion
 
 
-<a id="orgcd09341"></a>
+<a id="orgeed100d"></a>
 
 ### Company (Auto Complete)
 
@@ -370,26 +401,9 @@ Amazing git repo management
     (global-company-mode t))
 
 
-<a id="orgd163027"></a>
-
-### Company-Tern
-
-    (use-package company-tern
-      :ensure t
-      :config
-      (add-to-list 'company-backends 'company-tern)
-      (add-hook 'js2-mode-hook (lambda ()
-               (tern-mode)
-               (company-mode)))
-      (define-key tern-mode-keymap (kbd "M-.") nil)
-      (define-key tern-mode-keymap (kbd "M-,") nil))
-
-
-<a id="orga482359"></a>
+<a id="org3243577"></a>
 
 ### Deferred
-
-Async elisp function support. Why did I install this?
 
 1.  TODO : Figure out why I installed this
 
@@ -397,23 +411,23 @@ Async elisp function support. Why did I install this?
           :ensure t)
 
 
-<a id="org3225bdf"></a>
+<a id="orgadba1df"></a>
 
 ### Jedi (Python)
 
-    (use-package company-jedi
-        :ensure t
-        :config
-        (add-hook 'python-mode-hook 'jedi:setup))
-    
-    (defun my/python-mode-hook ()
-      "Company back-end hook for jedi."
-      (add-to-list 'company-backends 'company-jedi))
-    
-    (add-hook 'python-mode-hook 'my/python-mode-hook)
+    ;; (use-package company-jedi
+    ;;     :ensure t
+    ;;     :config
+    ;;     (add-hook 'python-mode-hook 'jedi:setup))
+
+    ;; (defun my/python-mode-hook ()
+    ;;   "Company back-end hook for jedi."
+    ;;   (add-to-list 'company-backends 'company-jedi))
+
+    ;; (add-hook 'python-mode-hook 'my/python-mode-hook)
 
 
-<a id="org5fa4c96"></a>
+<a id="orge05515b"></a>
 
 ### JS2-Mode
 
@@ -425,7 +439,7 @@ Async elisp function support. Why did I install this?
       :ensure t)
 
 
-<a id="orgf66bb18"></a>
+<a id="orgd69083a"></a>
 
 ### JS2-refactor
 
@@ -437,7 +451,34 @@ Async elisp function support. Why did I install this?
       :ensure t)
 
 
-<a id="org13d8463"></a>
+<a id="org10be970"></a>
+
+### LSP
+
+    (use-package lsp-mode
+      :ensure t
+      :config
+      (use-package lsp-ui
+        :ensure t
+        :config
+        (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+      (use-package lsp-vue
+        :ensure t
+        :config
+        (add-hook 'vue-mode-hook #'lsp-vue-mmm-enable))
+      (use-package lsp-javascript-typescript
+        :ensure t
+        :config
+        (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+        (add-hook 'js2-mode-hook #'lsp-javascript-typescript-enable)
+        (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable))
+      (use-package lsp-python
+        :ensure t
+        :config
+        (add-hook 'python-mode-hook #'lsp-python-enable)))
+
+
+<a id="orgec87cf7"></a>
 
 ### Markdown-Mode
 
@@ -450,7 +491,7 @@ Async elisp function support. Why did I install this?
       :init (setq markdown-command "multimarkdown"))
 
 
-<a id="org8fa8e5d"></a>
+<a id="org47fcb7b"></a>
 
 ### Org Mode <3
 
@@ -486,7 +527,7 @@ mode. As well as some semblence of structure in my life.
         (setq org-log-done 'time))
 
 
-<a id="org48d4598"></a>
+<a id="orgc410ffe"></a>
 
 ### Pug Mode
 
@@ -498,7 +539,7 @@ projects.
       :ensure t)
 
 
-<a id="orgb6d950a"></a>
+<a id="org6ab5c11"></a>
 
 ### Python-Environment
 
@@ -508,7 +549,7 @@ Virtualenv support.
       :ensure t)
 
 
-<a id="org052e158"></a>
+<a id="org1e8f498"></a>
 
 ### RJSX-Mode
 
@@ -518,12 +559,12 @@ React Development. Need I say more?
       :ensure t
       :config
       (add-to-list 'auto-mode-alist '("containers\\/.*\\.js\\'" . rjsx-mode))
-    
+
       (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
       (add-to-list 'company-backends 'company-etags))
 
 
-<a id="orgb3bfc25"></a>
+<a id="org59fd42c"></a>
 
 ### SCSS/CSS
 
@@ -533,7 +574,7 @@ React Development. Need I say more?
       (add-to-list 'company-backends 'company-css))
 
 
-<a id="orgac7f796"></a>
+<a id="orga5254f2"></a>
 
 ### Vue Mode
 
@@ -543,14 +584,10 @@ React Development. Need I say more?
     (use-package vue-mode
       :ensure t
       :config
-      (add-hook 'js-mode-hook #'tern-mode)
-      (add-to-list 'vue-mode-hook #'tern-mode)
-      (setq mmm-js-mode-exit-hook (lambda () (setq tern-mode nil)))
-      (setq mmm-js-mode-enter-hook (lambda () (setq tern-mode t)))
       (setq mmm-submode-decoration-level 0))
 
 
-<a id="org13b8a10"></a>
+<a id="org93a3052"></a>
 
 ### Web-Mode
 
@@ -558,12 +595,12 @@ React Development. Need I say more?
       :ensure t
       :config
       (add-to-list 'company-backends 'company-etags))
-    
+
     (use-package json-mode
       :ensure t)
 
 
-<a id="orga4178ff"></a>
+<a id="org0fbc4df"></a>
 
 ### Xref-JS2
 
@@ -575,7 +612,7 @@ React Development. Need I say more?
       :ensure t)
 
 
-<a id="org8870dbb"></a>
+<a id="org2d3bc10"></a>
 
 ### YAML Mode
 
@@ -583,7 +620,7 @@ React Development. Need I say more?
       :ensure t)
 
 
-<a id="org93f07b4"></a>
+<a id="orgaee9da3"></a>
 
 ## Rainbow Delimiters
 
@@ -595,34 +632,7 @@ Nice, colorful, matching brackets.
       (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 
-<a id="org9a6e295"></a>
-
-## Rainbow Identifiers (Disabled)
-
-Saving for later. Trying to make identifiers nice. This plugin by
-default works better than color-identifiers, but it colors
-literally everything with little rhyme or reason. Don't want to
-hack this at the moment.
-
-
-<a id="orgbe83187"></a>
-
-## Smartparens
-
-Auto-wraps text in brackets/quotes. 
-
-    (use-package smartparens
-      :ensure t
-      :config
-      (require 'smartparens-config)
-      (smartparens-global-mode t)
-      (use-package evil-smartparens
-        :ensure t
-        :config
-        (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)))
-
-
-<a id="orgf5ea9aa"></a>
+<a id="org936ec3e"></a>
 
 ## Treemacs
 
@@ -661,11 +671,11 @@ Nerdtree on steroids
               treemacs-tag-follow-cleanup         t
               treemacs-tag-follow-delay           1.5
               treemacs-width                      35)
-    
+
         ;; The default width and height of the icons is 22 pixels. If you are
         ;; using a Hi-DPI display, uncomment this to double the icon size.
         ;; (treemacs-resize-icons 44)
-    
+
         (treemacs-follow-mode t)
         (treemacs-filewatch-mode t)
         (treemacs-fringe-indicator-mode t)
@@ -683,13 +693,13 @@ Nerdtree on steroids
             ("C-x t B"   . treemacs-bookmark)
             ("C-x t C-t" . treemacs-find-file)
             ("C-x t M-t" . treemacs-find-tag)))
-    
+
     (use-package treemacs-projectile
       :after treemacs projectile
       :ensure t)
 
 
-<a id="org6cd8eac"></a>
+<a id="orge7c7488"></a>
 
 ## Yasnippet
 
@@ -702,4 +712,3 @@ Snippet support
       (use-package yasnippet-snippets
         :ensure t)
       (yas-reload-all))
-
