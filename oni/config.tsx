@@ -39,6 +39,7 @@ export const configuration = {
   "oni.loadInitVim": "~/.dotfiles/oni/init.vim",
   "editor.fontSize": "14px",
   "editor.fontFamily": "Source Code Pro Semibold",
+  "editor.linePadding": 0,
 
   // UI customizations
   "ui.animations.enabled": true,

@@ -8,16 +8,16 @@ Plug 'airblade/vim-gitgutter'
 " Docker
 Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 " Syntax
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'digitaltoad/vim-pug'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'digitaltoad/vim-pug'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'posva/vim-vue'
 Plug 'gko/vim-coloresque'
 Plug 'jiangmiao/auto-pairs'
-Plug 'posva/vim-vue'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1
+" Plug 'luochen1990/rainbow'
+" let g:rainbow_active = 1
 " Quality of Life
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdtree'
@@ -67,6 +67,10 @@ let g:javascript_plugin_flow = 1
 " vim-jsx
 let g:jsx_ext_required = 0
 
+" vim-vue
+autocmd FileType vue syntax sync fromstart
+let g:vue_disable_pre_processors=1
+
 """"""" Key Mappings
 " NerdTree
 nmap <leader>l :NERDTreeToggle<CR>
@@ -95,12 +99,33 @@ nmap <leader>fa :Ag<CR>
 nmap <leader>fr :Rg<CR>
 
 " Git Gutter
-let g:gitgutter_sign_added = '▍'
-let g:gitgutter_sign_modified = '▍'
-let g:gitgutter_sign_removed = '▍'
-let g:gitgutter_sign_removed_first_line = '▍'
-let g:gitgutter_sign_modified_removed = '▍'
+let g:gitgutter_sign_added = '▌'
+let g:gitgutter_sign_modified = '▌'
+let g:gitgutter_sign_removed = '▌'
+let g:gitgutter_sign_removed_first_line = '▌'
+let g:gitgutter_sign_modified_removed = '▌'
 
+" Rainbow Parens
+"	let g:rainbow_conf = {
+"	\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+"	\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+"	\	'operators': '_,_',
+"	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+"	\	'separately': {
+"	\		'*': {},
+"	\		'tex': {
+"	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+"	\		},
+"	\		'lisp': {
+"	\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+"	\		},
+"	\		'vim': {
+"	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+"	\		},
+"	\		'html': 0,
+"	\		'css': 0,
+"	\	}
+"	\}
 " Toggle relative number
 nmap <leader>r :set relativenumber!<CR>
 
