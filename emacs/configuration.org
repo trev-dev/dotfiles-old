@@ -33,7 +33,7 @@
 #+begin_src emacs-lisp
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
-(add-to-list 'default-frame-alist '(font . "Source Code Pro Semibold" ))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro Semibold 10" ))
 (set-face-attribute 'default t :font "Source Code Pro Semibold" )
 #+end_src
 
@@ -362,6 +362,7 @@
   (use-package lsp-python
     :ensure t
     :config
+    (setq lsp-message-project-root-warning t)
     (add-hook 'python-mode-hook #'lsp-python-enable)))
 #+end_src
 
