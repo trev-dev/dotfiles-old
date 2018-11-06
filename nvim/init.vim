@@ -24,13 +24,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'dhruvasagar/vim-dotoo'
 Plug 'jceb/vim-orgmode'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Completion
+Plug 'Valloric/YouCompleteMe'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -73,19 +70,18 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
 
-" Language Server
-let g:LanguageClient_serverCommands = {
-  \ 'javascript': ['~/.npm-global/bin/javascript-typescript-stdio'],
-  \ 'javascript.jsx': ['javascript-typescript-stdio']
-  \ }
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('LanguageClient',
-            \ 'min_pattern_length',
-            \ 2)
-
 " Emmet Leader
 let g:user_emmet_leader_key='<C-m>'
+
+" Git Gutter
+let g:gitgutter_sign_added = '▋'
+let g:gitgutter_sign_modified = '▋'
+let g:gitgutter_sign_removed = '▋'
+let g:gitgutter_sign_removed_first_line = '▋'
+let g:gitgutter_sign_modified_removed = '▋'
+
+" YCM
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
