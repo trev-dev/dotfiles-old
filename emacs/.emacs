@@ -17,10 +17,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(js-indent-level 2)
- '(package-selected-packages
-   (quote
-    (helm-ag ox-md yaml-mode xref-js2 web-mode use-package treemacs-projectile sass-mode rjsx-mode rainbow-delimiters origami org-bullets markdown-mode magit json-mode js2-refactor helm-projectile flycheck expand-region doom-themes doom-modeline diff-hl company-tern company-jedi better-defaults autopair ace-jump-mode))))
+ '(git-gutter:added-sign "▍")
+ '(git-gutter:deleted-sign "▍")
+ '(git-gutter:modified-sign "▍")
+ '(git-gutter:update-interval 2)
+ '(js-indent-level 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
