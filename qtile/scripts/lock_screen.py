@@ -1,11 +1,11 @@
 #! /usr/bin/python
-import os
 import subprocess
-
-exec_path = os.path.abspath(__file__)
 
 
 def lock_screen():
+    """
+    A function decorator for Qtile to lock the screen with
+    """
     processes = [
         ['scrot', '/tmp/screen.png'],
         [
@@ -19,10 +19,14 @@ def lock_screen():
         ['rm', '/tmp/screen.png']
     ]
 
-    for p in processes:
-        command = subprocess.Popen(p)
-        command.wait()
+    def inner(qtile=None):
+        for p in processes:
+            command = subprocess.Popen(p)
+            command.wait()
+
+    return inner
 
 
 if __name__ == '__main__':
-    lock_screen()
+    lock = lock_screen()
+    lock()

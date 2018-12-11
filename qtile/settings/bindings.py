@@ -1,24 +1,10 @@
-import subprocess
-from scripts.lock_screen import exec_path as lock_path
+from scripts.lock_screen import lock_screen
+from scripts.backlight import change_backlight
 from settings.groups import exports as groups
 from libqtile.config import Drag, Click, Key
 from libqtile.command import lazy
 
 mod = "mod4"
-
-def backlight(action):
-    def f(qtile):
-        brightness = int(subprocess.run(['xbacklight', '-get'],
-                                        stdout=subprocess.PIPE).stdout)
-        if brightness != 1 or action != 'dec':
-            if (brightness > 49 and action == 'dec') \
-                                or (brightness > 39 and action == 'inc'):
-                subprocess.run(['xbacklight', f'-{action}', '10',
-                                '-fps', '10'])
-            else:
-                subprocess.run(['xbacklight', f'-{action}', '1'])
-    return f
-
 
 qtile = [
     # Switch between windows in current stack pane
@@ -61,9 +47,9 @@ qtile = [
 ]
 
 system = [
-    Key([mod, "shift"], "x", lazy.spawn(lock_path)),
-    Key([], 'XF86MonBrightnessUp', lazy.function(backlight('inc'))),
-    Key([], 'XF86MonBrightnessDown', lazy.function(backlight('dec'))),
+    Key([mod, "shift"], "x", lazy.function(lock_screen())),
+    Key([], 'XF86MonBrightnessUp', lazy.function(change_backlight('up'))),
+    Key([], 'XF86MonBrightnessDown', lazy.function(change_backlight('down'))),
     Key([], 'XF86AudioRaiseVolume', lazy.spawn('pactl set-sink-volume 0 +5%')),
     Key([], 'XF86AudioLowerVolume', lazy.spawn('pactl set-sink-volume 0 -5%')),
     Key([], 'XF86AudioMute', lazy.spawn('pactl set-sink-mute 0 toggle'))

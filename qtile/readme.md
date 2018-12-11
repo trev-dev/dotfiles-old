@@ -126,5 +126,6 @@ Contains the various available layouts and what their settings are. Also contain
 <a id="todos"></a>
 
 ## Todos
-- [ ] Figure out how to run arbitrary functions in keybindings instead of executible scripts.
+- [x] Figure out how to run arbitrary functions in keybindings instead of executible scripts.
+- [x] Fix backlight functions
 - [ ] Find a sweet background to match the color scheme
