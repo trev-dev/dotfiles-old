@@ -24,6 +24,5 @@ def lock_screen():
         command.wait()
 
 
-
 if __name__ == '__main__':
     lock_screen()
