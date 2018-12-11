@@ -1,4 +1,5 @@
 import subprocess
+from scripts.lock_screen import exec_path as lock_path
 from settings.groups import exports as groups
 from libqtile.config import Drag, Click, Key
 from libqtile.command import lazy
@@ -60,8 +61,7 @@ qtile = [
 ]
 
 system = [
-    # Lock Screen
-    Key([mod, "shift"], "x", lazy.spawn("/home/trevdev/.dotfiles/i3/lock.sh")),
+    Key([mod, "shift"], "x", lazy.spawn(lock_path)),
     Key([], 'XF86MonBrightnessUp', lazy.function(backlight('inc'))),
     Key([], 'XF86MonBrightnessDown', lazy.function(backlight('dec'))),
     Key([], 'XF86AudioRaiseVolume', lazy.spawn('pactl set-sink-volume 0 +5%')),
