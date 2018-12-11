@@ -1,4 +1,5 @@
 /emacs/configuration.el
 /vscode/User/workspaceStorage
+/**/*.org
 
 __pycache__
