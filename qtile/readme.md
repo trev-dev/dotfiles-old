@@ -119,6 +119,6 @@ Contains the various available layouts and what their settings are. Also contain
 
 ## Screenshots
 
-![Screenshot 1](./screens/Screenshot-1)
-![Screenshot 2](./screens/Screenshot-2)
+![Screenshot 1](./screens/Screenshot-1.png)
+![Screenshot 2](./screens/Screenshot-2.png)
 
