@@ -12,8 +12,9 @@
         4.  [groups.py](#orga2b261d)
         5.  [screens.py](#orgf8d5200)
         6.  [theme.py](#orgcffb443)
-        7.  [tile<sub>layouts.py</sub>](#org58dd84a)
+        7.  [tile_layouts.py](#org58dd84a)
     3.  [Screenshots](#orgac810f3)
+    4.  [Todos](#todos)
 
 
 <a id="orge5fd7a0"></a>
@@ -122,3 +123,8 @@ Contains the various available layouts and what their settings are. Also contain
 ![Screenshot 1](./screens/Screenshot-1.png)
 ![Screenshot 2](./screens/Screenshot-2.png)
 
+<a id="todos"></a>
+
+## Todos
+- [ ] Figure out how to run arbitrary functions in keybindings instead of executible scripts.
+- [ ] Find a sweet background to match the color scheme
