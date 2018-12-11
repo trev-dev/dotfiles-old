@@ -13,7 +13,7 @@ colors = {
 }
 
 font = {
-    'face': 'Souce Code Pro Semibold',
+    'face': 'Souce Code Pro',
     'size': 12
 }
 
