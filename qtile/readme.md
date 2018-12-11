@@ -110,7 +110,7 @@ Some general theme settings that get delegated to the various other config files
 
 <a id="org58dd84a"></a>
 
-### tile<sub>layouts.py</sub>
+### tile_layouts.py
 
 Contains the various available layouts and what their settings are. Also contains the floating window settings (which window classes get floated automatically)
 
