@@ -1,11 +1,12 @@
+import os
 import subprocess
 from settings.theme import background_image
 
 
 def init_apps():
     processes = [
+        # Recommended
         ['compton', '-b'],
-
         ['feh', '--bg-scale', background_image],
         ['/usr/bin/setxkbmap', '-option', 'caps:swapescape'],
         [
@@ -16,8 +17,9 @@ def init_apps():
             '-cornersize',
             '30',
             '-locker',
-            '/home/trevdev/.dotfiles/i3/lock.sh'
+            os.path.expanduser('~/.config/qtile/scripts/lock_screen.py')
         ],
+        # Optional
         ['blueman-applet'],
         ['mpd'],
         ['mpdas'],
