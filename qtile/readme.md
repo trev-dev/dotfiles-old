@@ -128,4 +128,4 @@ Contains the various available layouts and what their settings are. Also contain
 ## Todos
 - [x] Figure out how to run arbitrary functions in keybindings instead of executible scripts.
 - [x] Fix backlight functions
-- [ ] Find a sweet background to match the color scheme
+- [x] Find a sweet background to match the color scheme (ended up just making one)
