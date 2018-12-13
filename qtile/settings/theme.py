@@ -23,4 +23,4 @@ widgets = {
     'padding': 3
 }
 
-background_image = os.path.expanduser('~/.config/qtile/wallpaper-arch.png')
+wallpaper = os.path.expanduser('~/.config/qtile/wallpaper/wallpaper-arch.png')

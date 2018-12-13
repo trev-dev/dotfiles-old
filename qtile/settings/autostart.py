@@ -1,13 +1,13 @@
 import os
 import subprocess
-from settings.theme import background_image
+from settings.theme import wallpaper
 
 
 def init_apps():
     processes = [
         # Recommended
         ['compton', '-b'],
-        ['feh', '--bg-scale', background_image],
+        ['feh', '--bg-scale', wallpaper],
         ['/usr/bin/setxkbmap', '-option', 'caps:swapescape'],
         [
             'xautolock',

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="4096"
+   height="2304"
+   viewBox="0 0 1083.7333 609.60002"
+   version="1.1"
+   id="svg110"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
+   sodipodi:docname="archgradientswirl.svg"
+   inkscape:export-filename="/home/trevdev/Pictures/inkscape/archback.png"
+   inkscape:export-xdpi="95.974953"
+   inkscape:export-ydpi="95.974953">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.18765261"
+     inkscape:cx="1731.9161"
+     inkscape:cy="1108.2014"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide7200"
+       orientation="1,0"
+       position="-34.726563,620.94401" />
+    <inkscape:grid
+       id="grid7202"
+       type="xygrid" />
+  </sodipodi:namedview>
+  <defs
+     id="defs104">
+    <meshgradient
+       y="-0.055155508"
+       x="-0.92515111"
+       gradientUnits="userSpaceOnUse"
+       id="meshgradient927"
+       inkscape:collect="always">
+      <meshrow
+         id="meshrow1153">
+        <meshpatch
+           id="meshpatch1155">
+          <stop
+             path="c 180.76,0  361.943,-0.0472471  542.705,-0.047247"
+             style="stop-color:#63d1df;stop-opacity:1"
+             id="stop1157" />
+          <stop
+             path="c 362.349,0.218254  -366.591,609.59  0.0133673,609.806"
+             style="stop-color:#fff8ff;stop-opacity:0.98431373"
+             id="stop1159" />
+          <stop
+             path="c -180.773,-0.00139755  -361.97,-0.001405  -542.732,-0.001405"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1161" />
+          <stop
+             path="c 0,-203.253  0,-406.506  0.0136327,-609.757"
+             style="stop-color:#e5c07b;stop-opacity:0.99386501"
+             id="stop1163" />
+        </meshpatch>
+        <meshpatch
+           id="meshpatch1165">
+          <stop
+             path="c 181.053,-5.77824e-12  361.681,0.047247  542.735,0.047247"
+             id="stop1167" />
+          <stop
+             path="c 0,203.253  0,406.506  0,609.759"
+             style="stop-color:#61afef;stop-opacity:1"
+             id="stop1169" />
+          <stop
+             path="c -181.052,0  -361.667,2.35972e-07  -542.722,-0.000247"
+             style="stop-color:#ff7b85;stop-opacity:1"
+             id="stop1171" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+  </defs>
+  <metadata
+     id="metadata107">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="display:inline"
+     inkscape:label="backdrop"
+     id="layer2"
+     inkscape:groupmode="layer">
+    <rect
+       y="-0.055155508"
+       x="-0.92515111"
+       height="609.75909"
+       width="1085.4351"
+       id="rect4804"
+       style="fill:url(#meshgradient927);fill-opacity:1;stroke-width:0.26336417"
+       inkscape:export-filename="/home/trevdev/Pictures/wallpaper/Arch Colo.jpg.png"
+       inkscape:export-xdpi="95.974953"
+       inkscape:export-ydpi="95.974953" />
+  </g>
+  <g
+     inkscape:label="dots"
+     id="layer3"
+     inkscape:groupmode="layer">
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#c6c0c3;stroke-width:1.50449216;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 480.41414,366.23869 c 0,-0.033 1.97107,-3.61522 4.38015,-7.9604 8.93966,-16.12415 17.3762,-31.56402 24.06481,-44.04146 1.54307,-2.87857 4.44917,-8.39375 6.72321,-12.75929 1.72275,-3.30722 8.31327,-16.46966 9.09246,-18.15928 0.4606,-0.99875 0.46474,-1.00325 0.73028,-0.79365 3.66192,2.89063 7.22775,5.11734 11.60172,7.2448 2.19738,1.06879 5.26011,2.42865 5.4699,2.42865 0.0612,0 -0.29554,-0.29186 -0.79274,-0.64858 -4.62348,-3.31721 -8.52233,-6.67719 -12.95006,-11.16021 l -1.80167,-1.82419 1.20634,-2.61562 c 3.0084,-6.52283 5.30641,-11.93034 10.11409,-23.7997 1.78164,-4.3986 3.32055,-8.18975 3.41981,-8.42479 0.16138,-0.38218 0.19065,-0.40154 0.27694,-0.18315 0.39194,0.9919 7.45835,17.59424 8.52283,20.02415 7.62025,17.39498 16.93123,35.86743 36.44904,72.31281 0.90803,1.69564 1.62249,3.08299 1.5876,3.08299 -0.035,0 -0.51089,-0.25266 -1.05779,-0.56146 -2.37899,-1.34324 -5.98814,-2.91549 -9.23604,-4.02348 -1.82365,-0.62211 -6.04735,-1.88936 -6.26899,-1.88089 -0.0777,0.003 0.0786,0.11852 0.34721,0.25678 3.91875,2.01699 8.88006,5.14026 12.56143,7.90776 1.91581,1.4402 7.07104,5.5719 7.7829,6.23769 0.33559,0.31383 1.4447,2.25961 4.17571,7.3259 2.04529,3.79421 4.35169,8.06542 5.12536,9.49157 1.03379,1.90572 1.33675,2.55636 1.14294,2.45478 -0.14505,-0.076 -1.00547,-0.56282 -1.91208,-1.08175 -15.79281,-9.03984 -28.89324,-14.99832 -39.31569,-17.88197 -2.19464,-0.60721 -5.24541,-1.34993 -6.08336,-1.48101 -0.48162,-0.0754 -0.52144,-0.1082 -0.45451,-0.37492 0.0403,-0.16078 0.19275,-1.01848 0.33866,-1.90601 0.22988,-1.39833 0.26609,-2.11066 0.27136,-5.33768 0.005,-2.93296 -0.0385,-4.01575 -0.20401,-5.09746 -0.87025,-5.6892 -2.8607,-10.49846 -5.69613,-13.76275 -3.44527,-3.96639 -7.91802,-5.20455 -11.94349,-3.30624 -4.29585,2.02582 -7.72359,7.25538 -9.18128,14.00746 -0.52504,2.43201 -0.64365,3.55194 -0.70896,6.6938 -0.0688,3.3101 0.0822,5.36171 0.56973,7.73843 0.12551,0.61196 0.21882,1.11711 0.20734,1.12256 -0.0115,0.005 -0.62527,0.13373 -1.36397,0.28509 -3.46617,0.71019 -8.60713,2.16432 -12.18574,3.44674 -9.42706,3.37826 -20.76606,8.86084 -33.5096,16.20241 -0.82265,0.47392 -1.49571,0.83463 -1.49571,0.80157 z"
+       id="path26749"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/trevdev/Pictures/wallpaper/Arch Colo.jpg.png"
+       inkscape:export-xdpi="95.974953"
+       inkscape:export-ydpi="95.974953" />
+  </g>
+</svg>
