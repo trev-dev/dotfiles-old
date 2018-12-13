@@ -122,6 +122,8 @@ Contains the various available layouts and what their settings are. Also contain
 
 ![Screenshot 1](./screens/Screenshot-1.png)
 ![Screenshot 2](./screens/Screenshot-2.png)
+![Screenshot 3](./screens/Screenshot-3.png)
+![Screenshot 4](./screens/Screenshot-4.png)
 
 <a id="todos"></a>
 
@@ -129,3 +131,4 @@ Contains the various available layouts and what their settings are. Also contain
 - [x] Figure out how to run arbitrary functions in keybindings instead of executible scripts.
 - [x] Fix backlight functions
 - [x] Find a sweet background to match the color scheme (ended up just making one)
+- [ ] Volume control for bluetooth output does not work. It doesn't automatically switch from the soundcard when bluetooth audio is synced.
