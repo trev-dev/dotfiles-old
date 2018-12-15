@@ -26,6 +26,7 @@ cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
+
 # Do hooks
 @hook.subscribe.startup_once
 def run():
@@ -39,4 +40,6 @@ def run():
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
+
+
 wmname = "LG3D"
