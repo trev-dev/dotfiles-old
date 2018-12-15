@@ -44,6 +44,10 @@ qtile = [
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
     Key([mod], "r", lazy.spawncmd()),
+
+    # Screens
+    Key([mod, "control"], "1", lazy.to_screen(0)),
+    Key([mod, "control"], "2", lazy.to_screen(1))
 ]
 
 system = [
@@ -72,7 +76,8 @@ for i in groups:
         # mod1 + letter of group = switch to group
         Key([mod], i.name, lazy.group[i.name].toscreen()),
 
-        # mod1 + shift + letter of group = switch to & move focused window to group
+        # mod1 + shift + letter of group = switch to & move focused
+        # window to group
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
 
