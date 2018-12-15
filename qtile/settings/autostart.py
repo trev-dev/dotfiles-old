@@ -22,9 +22,8 @@ def init_apps():
         # Optional
         ['blueman-applet'],
         ['mpd'],
-        ['mpdas'],
+        ['mpdas', '-d'],
         ['nextcloud'],
-        ['keybase']
     ]
 
     for p in processes:
