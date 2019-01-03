@@ -71,7 +71,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
 
 " Emmet Leader
-let g:user_emmet_leader_key='<C-m>'
+let g:user_emmet_leader_key='<C-k>'
 
 " Git Gutter
 let g:gitgutter_sign_added = '▋'
@@ -90,7 +90,14 @@ let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 " Preferences
-set number
+:set number relativenumber
+:set nu rnu
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 
 """"""" Mappings
 nmap <C-b> :NERDTreeToggle<CR>
