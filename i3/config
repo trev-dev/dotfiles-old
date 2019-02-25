@@ -228,24 +228,26 @@ new_window pixel 1
 # When you float a window manually, toggle the title bar
 exec ~/.dotfiles/i3/floatingtitles.py
 
-gaps inner 5
-gaps outer 5
+gaps inner 3
+gaps outer 1
 smart_gaps on
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  status_command i3blocks -c ~/.i3/i3blocks.conf
-    colors {
-      background $bars-bg-color
-        separator          #757575
-      # border             background         text
-        focused_workspace  $bars-bg-color     $bars-bg-color     $text-color
-        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-    }
 
-}
+# i3blocks
+# bar {
+#   status_command i3blocks -c ~/.i3/i3blocks.conf
+#     colors {
+#       background $bars-bg-color
+#         separator          #757575
+#       # border             background         text
+#         focused_workspace  $bars-bg-color     $bars-bg-color     $text-color
+#         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#     }
+# 
+# }
 # Keybinds -->
 
 bindsym Mod4+shift+x exec ~/.i3/lock.sh
@@ -269,13 +271,10 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Autorun -->
 # Wallpaper
-exec_always feh --bg-scale /home/trevdev/.i3/wallpapers/archfoil.jpg
+exec_always feh --bg-scale /home/trevdev/.dotfiles/wallpapers/archfoil.jpg
 exec compton -b
 #Apps
-exec dunst
-exec blueman-applet
-exec /usr/lib/kdeconnectd
+exec_always --no-startup-id $HOME/.dotfiles/i3/i3poly.sh
 exec --no-startup-id "sh -c 'sleep 5; exec nextcloud'"
-exec --no-startup-id "sh -c 'sleep 5; exec kdeconnect-indicator'"
 exec setxkbmap -option caps:escape
 exec xautolock -time 5 -corners -000 -cornersize 30 -locker ~/.i3/lock.sh
