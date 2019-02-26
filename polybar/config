@@ -370,8 +370,8 @@ animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+thermal-zone = 10
+warn-temperature = 90
 
 format = <ramp> <label>
 format-underline = #f50a4d
