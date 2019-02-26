@@ -223,7 +223,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # New windows have no title bar
 hide_edge_borders both
-new_window pixel 1
+new_window pixel 2
 
 # When you float a window manually, toggle the title bar
 exec ~/.dotfiles/i3/floatingtitles.py
@@ -250,7 +250,7 @@ smart_gaps on
 # }
 # Keybinds -->
 
-bindsym Mod4+shift+x exec ~/.i3/lock.sh
+bindsym Mod4+shift+x exec ~/.dotfiles/i3/lock.sh
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 
@@ -260,21 +260,21 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPause exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc previous
 
 # Autorun -->
 # Wallpaper
-exec_always feh --bg-scale /home/trevdev/.dotfiles/wallpapers/archfoil.jpg
+exec_always feh --bg-scale ~/.dotfiles/i3/wallpapers/archfoil.jpg
 exec compton -b
 #Apps
 exec_always --no-startup-id $HOME/.dotfiles/i3/i3poly.sh
 exec --no-startup-id "sh -c 'sleep 5; exec nextcloud'"
 exec setxkbmap -option caps:escape
-exec xautolock -time 5 -corners -000 -cornersize 30 -locker ~/.i3/lock.sh
+exec xautolock -time 5 -corners -000 -cornersize 30 -locker ~/.dotfiles/i3/lock.sh
