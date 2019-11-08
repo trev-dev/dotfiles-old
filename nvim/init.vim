@@ -93,7 +93,16 @@ let g:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
 let b:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
 
 " Lightline
-let g:lightline = { 'colorscheme': 'material_vim' }
+let g:lightline = {
+      \ 'colorscheme': 'material_vim',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 " Airline
 " let g:airline#extensions#tabline#enabled = 0
 " let g:airline_powerline_fonts = 1
