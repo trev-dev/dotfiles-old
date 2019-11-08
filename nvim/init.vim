@@ -57,9 +57,12 @@ Plug 'prettier/vim-prettier', {
 " Completion
 Plug 'Valloric/YouCompleteMe'
 
+" Lightline
+Plug 'itchyny/lightline.vim'
+
 " Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Themes
 Plug 'dracula/vim'
@@ -87,11 +90,12 @@ let g:ale_fixers = {'javascript': ['eslint']}
 let g:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
 let b:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
 
+" Lightline
+let g:lightline = { 'colorscheme': 'material_vim' }
 " Airline
-let g:airline#extensions#tabline#enabled = 0
-" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='material'
+" let g:airline#extensions#tabline#enabled = 0
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='material'
 
 " Emmet Leader
 let g:user_emmet_leader_key='<C-k>'
