@@ -24,7 +24,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"" Plug 'w0rp/ale'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'plytophogy/vim-virtualenv'
@@ -54,17 +55,7 @@ Plug 'prettier/vim-prettier', {
     \ 'html',
     \ 'swift' ] }
 " Completion
-" Plug 'Valloric/YouCompleteMe'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'yami-beta/asyncomplete-omni.vim'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'runoshun/tscompletejob'
-Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'vhakulinen/gnvim-lsp'
+Plug 'Valloric/YouCompleteMe'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -168,80 +159,6 @@ nmap <leader>s :set list!<CR>
 " GUI Settings
 set guifont=Source\ Code\ Pro\ Semibold:h11:b
 " set guifont=Operator\ Mono\ Lig\ Medium:h12
-
-" LSP
-if executable('pyls')
-  " pip install python-language-server
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'pyls',
-    \ 'cmd': {server_info->['pyls']},
-    \ 'whitelist': ['python'],
-    \ })
-endif
-
-au User lsp_setup call lsp#register_server({
-  \ 'name': 'javascript support using typescript-language-server',
-  \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-  \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-  \ 'whitelist': ['javascript', 'javascript.jsx']
-  \ })
-
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'css-languageserver',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
-    \ 'whitelist': ['css', 'less', 'sass', 'scss'],
-    \ })
-
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'intelephense',
-    \ 'cmd': {server_info->['node', expand('/home/trevdev/.local/npm/lib/node_modules/intelephense/lib/intelephense.js'), '--stdio']},
-    \ 'initialization_options': {"storagePath": "/tmp/intelephense"},
-    \ 'whitelist': ['php'],
-    \ })
-
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'docker-langserver',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
-    \ 'whitelist': ['dockerfile'],
-    \ })
-
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('~/.logs/vim-lsp.log')
-
-" Autocomplete
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['go'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ }))
-
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
-
-call asyncomplete#register_source(asyncomplete#sources#tscompletejob#get_source_options({
-    \ 'name': 'tscompletejob',
-    \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
-    \ 'completor': function('asyncomplete#sources#tscompletejob#completor'),
-    \ }))
-
-
-" for asyncomplete.vim log
-let g:asyncomplete_log_file = expand('~/.logs/asyncomplete.log')
 
 " Themes
 if (empty($TMUX))
