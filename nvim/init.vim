@@ -82,7 +82,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-set breakindent
 
 " Python
 autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
