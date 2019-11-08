@@ -73,7 +73,10 @@ Plug 'gosukiwi/vim-atom-dark'
 Plug 'rakr/vim-one'
 Plug 'kaicataldo/material.vim'
 call plug#end()
-" Indentation Add ability to see whitespace/eol set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣ Tab Sizes
+" Indentation Add ability to see whitespace/eol 
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣ 
+
+" Tab Sizes
 " By default, the indent is 2 spaces.
 set shiftwidth=2
 set softtabstop=2
