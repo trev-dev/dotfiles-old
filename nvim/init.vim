@@ -19,6 +19,8 @@ Plug 'posva/vim-vue'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
 
 " Quality of Life
 Plug 'scrooloose/nerdtree'
@@ -82,6 +84,8 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+set breakindent
+set lbr
 
 " Python
 autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
@@ -135,6 +139,7 @@ autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 " Preferences
 set number relativenumber
 set nu rnu
+set clipboard+=unnamedplus
 
 :augroup numbertoggle
 :  autocmd!
