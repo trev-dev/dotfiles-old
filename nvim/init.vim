@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-set encoding=utf-8
+set encoding=UTF-8
 call plug#begin('~/.local/share/nvim/plugged')
 " Git
 Plug 'tpope/vim-fugitive'
@@ -25,6 +25,7 @@ Plug 'rust-lang/rust.vim'
 " Quality of Life
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
@@ -56,6 +57,7 @@ Plug 'prettier/vim-prettier', {
     \ 'ruby',
     \ 'html',
     \ 'swift' ] }
+Plug 'terryma/vim-multiple-cursors'
 " Completion
 Plug 'Valloric/YouCompleteMe'
 
@@ -175,10 +177,6 @@ nmap <leader>fr :Rg<CR>
 
 " Whitespace Character Toggle
 nmap <leader>s :set list!<CR>
-
-" GUI Settings
-set guifont=Source\ Code\ Pro\ Semibold:h11:b
-" set guifont=Operator\ Mono\ Lig\ Medium:h12
 
 " Themes
 if (empty($TMUX))
