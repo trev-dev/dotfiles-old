@@ -1,5 +1,6 @@
 /emacs/configuration.el
 /vscode/User/workspaceStorage
 /**/*.org
+.netrwhist
 
 __pycache__
