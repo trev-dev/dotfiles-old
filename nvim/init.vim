@@ -18,17 +18,19 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
+Plug 'tpope/vim-liquid'
+Plug 'ledger/vim-ledger'
 
 " Quality of Life
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
+Plug 'markonm/traces.vim'
+" ^ Requires a working 'nerd' font to be installed and configured.
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'plytophogy/vim-virtualenv'
