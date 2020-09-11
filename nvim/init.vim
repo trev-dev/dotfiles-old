@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 set encoding=UTF-8
+
 call plug#begin('~/.local/share/nvim/plugged')
-" Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
@@ -41,34 +41,31 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'jamessan/vim-gnupg'
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'less',
-    \ 'scss',
-    \ 'json',
-    \ 'graphql',
-    \ 'markdown',
-    \ 'vue',
-    \ 'lua',
-    \ 'php',
-    \ 'python',
-    \ 'ruby',
-    \ 'html',
-    \ 'swift' ] }
-Plug 'terryma/vim-multiple-cursors'
+      \ 'do': 'yarn install',
+      \ 'branch': 'release/1.x',
+      \ 'for': [
+      \ 'javascript',
+      \ 'typescript',
+      \ 'css',
+      \ 'less',
+      \ 'scss',
+      \ 'json',
+      \ 'graphql',
+      \ 'markdown',
+      \ 'vue',
+      \ 'lua',
+      \ 'php',
+      \ 'python',
+      \ 'ruby',
+      \ 'html',
+      \ 'swift' ] }
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 " Completion
-Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Lightline
 Plug 'itchyny/lightline.vim'
-
-" Airline
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 " Themes
 Plug 'dracula/vim'
@@ -94,11 +91,11 @@ set lbr
 " Python
 autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
 
-" Ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
-let g:ale_fixers = {'javascript': ['eslint']}
-let g:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
-let b:ale_virtualenv_dir_names = ['env', '.env', 'venv', 'virtualenv']
+" Ledger
+autocmd Filetype ledger setlocal ts=4 sw=4 sts=0 noexpandtab
+
+" Mail
+autocmd Filetype mail setlocal tw=0 wrap
 
 " Lightline
 let g:lightline = {
@@ -111,10 +108,6 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
-" Airline
-" let g:airline#extensions#tabline#enabled = 0
-" let g:airline_powerline_fonts = 1
-" let g:airline_theme='material'
 
 " Emmet Leader
 let g:user_emmet_leader_key='<C-k>'
@@ -126,9 +119,6 @@ let g:gitgutter_sign_removed = '▋'
 let g:gitgutter_sign_removed_first_line = '▋'
 let g:gitgutter_sign_modified_removed = '▋'
 
-" YCM
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
 " vim-javascript
 let g:javascript_plugin_flow = 1
 
@@ -136,7 +126,6 @@ let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 " Vue Crap
-
 autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 
@@ -183,8 +172,8 @@ nmap <leader>s :set list!<CR>
 " Themes
 if (empty($TMUX))
   if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   endif
   "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
   "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
