@@ -13,7 +13,7 @@ colors = {
 }
 
 font = {
-    'face': 'Souce Code Pro',
+    'face': 'Source Code Pro',
     'size': 12
 }
 
