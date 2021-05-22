@@ -5,7 +5,7 @@ group_settings = [
         "1",
         {
             "label": "",
-            "layout": "monadwide",
+            "layout": "monadtall",
         }
     ),
     (
@@ -25,7 +25,7 @@ group_settings = [
     (
         "4",
         {
-            "label": "",
+            "label": "",
             "layout": "max"
         }
     ),
@@ -47,14 +47,14 @@ group_settings = [
         "9",
         {
             "label": "",
-            "layout": "max"
+            "layout": "monadtall"
         }
     ),
     (
         "0",
         {
             "label": "♬",
-            "layout": "max"
+            "layout": "monadtall"
         }
     )
 ]
