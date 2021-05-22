@@ -12,7 +12,6 @@ primary = bar.Bar(
         widget.CurrentLayoutIcon(),
         widget.Prompt(),
         widget.TaskList(border=colors['blue'], borderwidth=1),
-        widget.Mpd(),
         widget.Volume(update_interval=2),
         widget.TextBox('|'),
         widget.Systray(),
