@@ -20,10 +20,7 @@ def init_apps():
             os.path.expanduser('~/.config/qtile/scripts/lock_screen.py')
         ],
         # Optional
-        ['blueman-applet'],
-        ['mpd'],
-        ['mpdas', '-d'],
-        ['nextcloud'],
+        ['nextcloud']
     ]
 
     for p in processes:
