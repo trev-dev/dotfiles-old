@@ -32,7 +32,7 @@ primary = bar.Bar(
         widget.TextBox('|'),
         widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
     ],
-    24,
+    28,
     background=colors['background'],
 )
 
@@ -48,6 +48,6 @@ secondary = bar.Bar(
         widget.Prompt(),
         widget.TaskList(border=colors['blue'], borderwidth=1)
     ],
-    24,
+    28,
     background=colors['background'],
 )
