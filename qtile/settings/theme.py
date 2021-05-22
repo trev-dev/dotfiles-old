@@ -20,7 +20,7 @@ font = {
 widgets = {
     'font': font['face'],
     'fontsize': font['size'],
-    'padding': 3
+    'padding': 4
 }
 
 wallpaper = os.path.expanduser('~/.config/qtile/wallpaper/wallpaper-arch.png')
