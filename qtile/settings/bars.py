@@ -22,6 +22,8 @@ primary = bar.Bar(
         widget.MemoryGraph(graph_color=colors['blue'],
                            border_color=colors['black']),
         widget.NetGraph(
+           graph_color=colors['yellow'],
+           border_color=colors['black']),
         # widget.Wlan(interface="wlp2s0"),
         widget.TextBox('|'),
         widget.ThermalSensor(),
@@ -44,6 +46,7 @@ secondary = bar.Bar(
             borderwidth=1),
         widget.CurrentLayoutIcon(),
         widget.Prompt(),
+        widget.TaskList(border=colors['blue'], borderwidth=1)
     ],
     24,
     background=colors['background'],
