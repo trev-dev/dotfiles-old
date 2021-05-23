@@ -18,12 +18,19 @@ primary = bar.Bar(
         widget.TextBox('|'),
         widget.CPUGraph(
             graph_color=colors['green'],
-            border_color=colors['black']),
-        widget.MemoryGraph(graph_color=colors['blue'],
-                           border_color=colors['black']),
+            border_color=colors['black'],
+            samples=40
+        ),
+        widget.MemoryGraph(
+            graph_color=colors['blue'],
+            border_color=colors['black'],
+            samples=40
+        ),
         widget.NetGraph(
-           graph_color=colors['yellow'],
-           border_color=colors['black']),
+            graph_color=colors['yellow'],
+            border_color=colors['black'],
+            samples=40
+        ),
         # widget.Wlan(interface="wlp2s0"),
         widget.TextBox('|'),
         widget.ThermalSensor(),
