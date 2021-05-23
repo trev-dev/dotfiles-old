@@ -9,11 +9,8 @@ def change_backlight(dir):
     process = ['xbacklight', '<amount>']
 
     def inner(qtile=None):
-        if dir == 'up':
-            process[1] = '+10'
-        else:
-            process[1] = '-10'
-
+        inc = 5
+        process[1] = (f'+{inc}', f'-{inc}') [dir == 'down']
         subprocess.Popen(process)
 
     return inner
