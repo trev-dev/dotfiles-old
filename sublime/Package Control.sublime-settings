@@ -1,0 +1,31 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"AceJump",
+		"Color Highlight",
+		"EJS 2",
+		"Emmet",
+		"FuzzyFilePath",
+		"Liquid",
+		"LiveReload",
+		"LSP",
+		"LSP-json",
+		"LSP-pyright",
+		"LSP-typescript",
+		"LSP-vue",
+		"MarkdownEditing",
+		"MarkdownPreview",
+		"MarkdownTOC",
+		"NeoVintageous",
+		"Nodejs",
+		"Package Control",
+		"SublimeGit",
+		"Terminus",
+	],
+	"debug": false,
+}

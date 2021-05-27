@@ -1,0 +1,6 @@
+[
+	{
+		"caption": "Open Folder",
+		"command": "prompt_open_folder"
+	}
+]

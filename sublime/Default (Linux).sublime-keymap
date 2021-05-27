@@ -1,0 +1,42 @@
+[
+	{"keys": ["ctrl+shift+o"], "command": "prompt_open_folder"},
+    {
+        "command": "noop",
+        "keys": [
+            "alt+i"
+        ],
+        "context": [
+            {
+                "key": "lsp.signature_help",
+                "operator": "equal",
+                "operand": 0
+            }
+        ]
+    },
+    {
+        "command": "lsp_hover",
+        "keys": [
+            "ctrl+i"
+        ],
+        "context": [
+            {
+                "key": "lsp.session_with_capability",
+                "operator": "equal",
+                "operand": "hoverProvider"
+            }
+        ]
+    },
+    {
+        "command": "lsp_code_actions",
+        "keys": [
+            "ctrl+shift+i"
+        ],
+        "context": [
+            {
+                "key": "lsp.session_with_capability",
+                "operator": "equal",
+                "operand": "codeActionProvider"
+            }
+        ]
+    }
+]
