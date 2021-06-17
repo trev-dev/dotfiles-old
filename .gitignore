@@ -3,5 +3,5 @@
 /**/*.org
 .netrwhist
 /sublime/*.cache
-
+*.vscode/
 __pycache__
