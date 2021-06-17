@@ -274,6 +274,8 @@ bindsym XF86AudioPrev exec mpc previous
 exec_always feh --bg-scale ~/.dotfiles/i3/wallpapers/blue-whisps.jpg
 exec picom --config ~/.dotfiles/picom/picom.conf -b
 #Apps
+exec /usr/bin/dunst
+# exec /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec_always --no-startup-id $HOME/.dotfiles/i3/i3poly.sh
 exec --no-startup-id "sh -c 'sleep 5; exec nextcloud'"
 exec setxkbmap -option caps:escape
