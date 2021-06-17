@@ -1,0 +1,4 @@
+{
+  "python.formatting.autopep8Path": "/usr/bin/autopep8",
+  "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
+}
