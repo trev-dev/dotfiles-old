@@ -1,5 +1,5 @@
 [
-	{"keys": ["ctrl+shift+o"], "command": "prompt_open_folder"},
+    {"keys": ["ctrl+shift+o"], "command": "prompt_open_folder"},
     {
         "command": "noop",
         "keys": [
@@ -38,5 +38,17 @@
                 "operand": "codeActionProvider"
             }
         ]
-    }
+    },
+    { "keys": ["ctrl+shift+space"], "command": "expand_selection", "args": {"to": "scope"} },
+    { "keys": ["alt+shift+space"], "command": "expand_selection", "args": {"to": "indentation"} },
+    { "keys": ["ctrl+`"], "command": "toggle_terminus_panel" },
+    { "keys": ["alt+`"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+    {
+        "keys": ["g", "o"],
+        "command": "double_click_at_caret",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "text.find-in-files", "match_all": true },
+        ]
+    },
+
 ]

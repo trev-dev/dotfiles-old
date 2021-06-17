@@ -1,23 +1,81 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
 	"dark_color_scheme": "Packages/Color Scheme - Default/Breakers.sublime-color-scheme",
 	"light_color_scheme": "Packages/Color Scheme - Default/Celeste.sublime-color-scheme",
 	"ignored_packages":
 	[
-		"Markdown",
-		"NeoVintageous",
 		"Six",
 		"Vintage",
 		"Vintageous",
 	],
-	"theme": "Adaptive.sublime-theme",
+	"theme": "Material-Theme-Darker.sublime-theme",
 	"neovintageous_build_version": 11100,
-	"relative_line_numbers": false,
 	"font_face": "Operator Mono Lig",
-	"font_size": 10,
+	"font_size": 9,
 	"font_options": ["dlig"],
-	"hardware_acceleration": "none",
+	"hardware_acceleration": "opengl",
 	"rulers": [80],
 	"draw_white_space": ["selection", "all_mixed"],
-	"spell_check": true
+	"spell_check": false,
+	"relative_line_numbers": true,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": false,
+
+	/* Vim Stuff */
+
+	"show_rel_path": true,
+
+	/*"material_theme_bright_scrollbars": true,*/
+	/*"material_theme_accent_titlebar": true,*/
+	/*"material_theme_compact_panel": true,*/
+	/*"material_theme_compact_panel": true,*/
+	/*"material_theme_contrast_mode": true,*/
+	/*"material_theme_contrast_mode": true,*/
+	/*"material_theme_contrast_mode": true,*/
+	/*"material_theme_panel_separator": true,*/
+	/*"material_theme_small_statusbar": true,*/
+	/*"material_theme_small_statusbar": true,*/
+	/*"material_theme_titlebar": true,*/
+	/*"material_theme_titlebar": true,*/
+	/*"material_theme_compact_panel": true,*/
+	/*"material_theme_bright_scrollbars": true,*/
+	/*"material_theme_bright_scrollbars": true,*/
+	/*"material_theme_accent_titlebar": true,*/
+	/*"material_theme_accent_scrollbars": true,*/
+	/*"material_theme_accent_scrollbars": true,*/
+	/*"material_theme_arrow_folders": true,*/
+	/*"material_theme_big_fileicons": true,*/
+	/*"material_theme_big_fileicons": true,*/
+	/*"material_theme_bullet_tree_indicator": true,*/
+	/*"material_theme_compact_sidebar": true,*/
+	/*"material_theme_compact_sidebar": true,*/
+	/*"material_theme_disable_fileicons": true,*/
+	/*"material_theme_disable_folder_animation": true,*/
+	/*"material_theme_disable_tree_indicator": true,*/
+	/*"material_theme_tree_headings": true,*/
+	/*"material_theme_arrow_folders": true,*/
+	/*"material_theme_big_fileicons": true,*/
+	"material_theme_compact_sidebar": true,
+	"material_theme_big_fileicons": true,
+	/*"material_theme_bold_tab": true,*/
+	/*"material_theme_small_tab": true,*/
+	/*"material_theme_tabs_autowidth": true,*/
+	/*"material_theme_tabs_separator": true,*/
+	/*"material_theme_tabs_separator": true,*/
+	/*"material_theme_tabs_autowidth": true,*/
+	/*"material_theme_small_tab": true,*/
+	/*"material_theme_bold_tab": true,*/
+	"material_theme_small_tab": true,
+	"material_theme_bold_tab": true,
+	/*"material_theme_accent_acid-lime": true,*/
+	/*"material_theme_accent_blue": true,*/
+	/*"material_theme_accent_brba": true,*/
+	/*"material_theme_accent_bright-teal": true,*/
+	/*"material_theme_accent_bright-teal": true,*/
+	/*"material_theme_accent_cyan": true,*/
+	/*"material_theme_accent_graphite": true,*/
+	/*"material_theme_accent_sky": true,*/
+	/*"material_theme_accent_tomato": true,*/
+	/*"material_theme_accent_yellow": true,*/
+	"material_theme_contrast_mode": true,
 }

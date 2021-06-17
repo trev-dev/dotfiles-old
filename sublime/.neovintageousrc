@@ -1,1 +1,10 @@
 " Type :help nv for help.
+nnoremap <leader>r :GotoSymbolInProject<CR>
+
+nnoremap <C-w>o :UnselectOthers<CR>
+nnoremap <C-w>h :FocusToLeft<CR>
+nnoremap <C-w>l :FocusToRight<CR>
+nnoremap <C-w><C-h> :SelectToLeft<CR>
+nnoremap <C-w><C-l> :SelectToRight<CR>
+nnoremap <leader>ql :UnselectToLeft<CR>
+nnoremap <leader>qh :UnselectToRight<CR>

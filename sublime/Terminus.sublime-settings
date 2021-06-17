@@ -6,7 +6,7 @@
 		"foreground_bold": "#abb2bf",
 		"caret": "#abb2bf",
 		"block_caret": "#abb2bf",
-		"background": "#1D2227",
+		"background": "#212121`",
 		"0": "#282a2e",
 		"1": "#e06c75",
 		"2": "#98c379",
@@ -24,4 +24,5 @@
 		"14": "#67bbff",
 		"15": "#c5c8c6",
 	},
+	"min_columns": 100
 }

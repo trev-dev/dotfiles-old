@@ -1,0 +1,36 @@
+<snippet>
+  <content><![CDATA[
+const path = require('path')
+
+const base = {
+  entry: '${1:./src/js/index.js}',
+  output: {
+    path: path.resolve(__dirname, ${2:'dist'}),
+    filename: '${3:[name].js}'
+  },
+  module: {
+    rules: [
+      ${4}
+    ]
+  }
+}
+
+const dev = {
+  ...base,
+  mode: 'development',
+  devtool: 'inline-source-map',
+  watch: true
+}
+
+const prod = {
+  ...base,
+  mode: 'production',
+}
+
+module.exports = (env) => env.production ? prod : dev
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>wpack</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.js</scope>
+</snippet>
