@@ -7,6 +7,13 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch Polybar, using default config location ~/.config/polybar/config
-polybar primary &
+hdmi_plugged=$(xrandr|grep ' connected'|grep 'HDMI'|awk '{print $1}')
+
+if [ -z "$hdmi_plugged" ];
+then
+  polybar primary &
+else
+  polybar -c $HOME/.config/polybar/config-monitor primary &
+fi
 
 echo "Polybar launched..."
