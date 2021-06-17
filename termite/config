@@ -1,9 +1,8 @@
 [options]
 allow_bold = true
 #audible_bell = false
-clickable_url = true
-dynamic_title = true
-font = Source Code Pro Semibold 12
+clickable_url = true dynamic_title = true
+font = Source Code Pro Semibold 11
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -17,7 +16,7 @@ scrollback_lines = 10000
 hyperlinks = true
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-browser = google-chrome-stable
+browser = firefox
 
 # "system", "on" or "off"
 #cursor_blink = system
@@ -76,7 +75,7 @@ browser = google-chrome-stable
 foreground      = #abb2bf
 foreground_bold = #abb2bf
 cursor          = #abb2bf
-background      = rgba(29, 31, 33, 0.9)
+background      = rgba(0, 0, 0, 0.85)
 
 # black
 color0  = #282a2e
