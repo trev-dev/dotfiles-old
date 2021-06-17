@@ -281,3 +281,4 @@ exec --no-startup-id "sleep 2; $HOME/.dotfiles/scripts/autodisplay"
 # exec --no-startup-id "sh -c 'sleep 5; exec nextcloud'"
 exec_always setxkbmap -option caps:escape
 exec xautolock -time 5 -corners -000 -cornersize 30 -locker ~/.dotfiles/i3/lock.sh
+# exec light-locker
