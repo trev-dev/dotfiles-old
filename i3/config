@@ -250,7 +250,9 @@ smart_gaps on
 # }
 # Keybinds -->
 
-bindsym Mod4+shift+x exec ~/.dotfiles/i3/lock.sh
+bindsym Mod4+Shift+x exec ~/.dotfiles/i3/lock.sh
+bindsym Mod4+Shift+s exec ~/.dotfiles/i3/lock.sh & systemctl suspend
+# bindsym Mod4+shift+x exec light-locker-command -l
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 
