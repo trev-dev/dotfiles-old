@@ -155,6 +155,10 @@ bindsym Mod4+Shift+8 move container to workspace $ws8
 bindsym Mod4+Shift+9 move container to workspace $ws9
 bindsym Mod4+Shift+0 move container to workspace $ws10
 
+# Multi-monitor switching
+bindsym Mod1+Shift+1 move workspace to output right
+bindsym Mod1+Shift+2 move workspace to output left
+
 # Example of always opening an application in a specific window
 # Open application. Open a terminal. Run xprop and click the window
 # Copy the second string under class. Then setup the following...
