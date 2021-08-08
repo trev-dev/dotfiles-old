@@ -1,13 +1,12 @@
 import os
 import subprocess
-from settings.theme import wallpaper
+from os.path import expanduser
 
 
 def init_apps():
     processes = [
         # Recommended
-        ['compton', '-b'],
-        ['feh', '--bg-scale', wallpaper],
+        ['picom', '--config', expanduser('~/.dotfiles/picom/picom.conf'), '-b'],
         ['/usr/bin/setxkbmap', '-option', 'caps:swapescape'],
         [
             'xautolock',
@@ -17,7 +16,7 @@ def init_apps():
             '-cornersize',
             '30',
             '-locker',
-            os.path.expanduser('~/.config/qtile/scripts/lock_screen.py')
+            expanduser('~/.config/qtile/scripts/lock_screen.py')
         ],
         # Optional
         ['nextcloud']
