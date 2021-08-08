@@ -42,7 +42,7 @@
     { "keys": ["ctrl+shift+space"], "command": "expand_selection", "args": {"to": "scope"} },
     { "keys": ["alt+shift+space"], "command": "expand_selection", "args": {"to": "indentation"} },
     { "keys": ["ctrl+`"], "command": "toggle_terminus_panel" },
-    { "keys": ["alt+`"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+    { "keys": ["ctrl+k", "`"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
     {
         "keys": ["g", "o"],
         "command": "double_click_at_caret",
@@ -50,5 +50,15 @@
             { "key": "selector", "operator": "equal", "operand": "text.find-in-files", "match_all": true },
         ]
     },
-
+    { "keys": ["ctrl+m", "n"], "command": "next_bookmark" },
+    { "keys": ["ctrl+m", "p"], "command": "prev_bookmark" },
+    { "keys": ["ctrl+m", "t"], "command": "toggle_bookmark" },
+    { "keys": ["ctrl+m", "ctrl+d"], "command": "clear_bookmarks" },
+    { "keys": ["ctrl+m", "ctrl+a"], "command": "select_all_bookmarks" },
+    { "keys": ["ctrl+k", ","], "command": "emmet_expand_abbreviation" },
+    { 
+        "keys": ["ctrl+t", "s"], 
+        "command": "toggle_setting", 
+        "args": { "setting": "spell_check" }
+    }
 ]

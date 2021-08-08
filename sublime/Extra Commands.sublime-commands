@@ -2,5 +2,12 @@
 	{
 		"caption": "Open Folder",
 		"command": "prompt_open_folder"
+	},
+	{
+		"caption": "Toggle Spell Check",
+		"command": "toggle_setting",
+		"args": {
+			"setting": "spell_check"
+		}
 	}
 ]

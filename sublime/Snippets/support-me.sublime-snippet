@@ -1,6 +1,7 @@
 <snippet>
 	<content><![CDATA[
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y34UWHH) [![Support me on Liberpay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/trev.dev/donate)
+<a href="https://ko-fi.com/Y8Y34UWHH" title="Buy me a coffee" target="_blank"><img src="https://ko-fi.com/img/githubbutton_sm.svg" style="display: inline-block;" alt="ko-fi"></a>
+<a href="https://liberapay.com/trev.dev/donate" target="_blank"><img src="https://liberapay.com/assets/widgets/donate.svg" style="display: inline-block;" alt="Support me on Liberpay"></a>
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>dono</tabTrigger>
