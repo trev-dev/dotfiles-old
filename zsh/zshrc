@@ -3,12 +3,12 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/trevdev/.oh-my-zsh"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# sorin, half-life, spaceship
+ZSH_THEME="freeman"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -65,44 +65,28 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   zsh-autosuggestions
-  vi-mode
+  zsh-syntax-highlighting
+  shrink-path
   docker
   python
-  taskwarrior
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+## Aliases
+alias xcp="pwd|xclip"
+alias xcd='cd $(xclip -o)'
+alias sysstart="sudo systemctl start"
+alias sysstop="sudo systemctl stop"
+alias sysenable="sudo systemctl enable"
+alias sysdisable="sudo systemctl disable"
+alias sysrestart="sudo systemctl restart"
+alias sysstatus="sudo systemctl status"
+alias rebooty="systemctl reboot"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-export EDITOR='nvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Functions
+## Functions
 function cal() {
   local CALRES=$(qalc -t $1)
   echo $CALRES
@@ -115,23 +99,3 @@ function genpass() {
   printf $passwd | xclip -sel clip
 }
 
-function layout() {
-  if [ -n "$1" ]; then
-    local layouts=$HOME/.dotfiles/scripts/layouts
-    case $1 in
-      laptop)
-        $layouts/laptop
-        ;;
-      monitor)
-        $layouts/monitor_plugged_in
-        ;;
-      *)
-        echo "No such layout $1"
-        ;;
-    esac
-  else
-    echo 'No layout specified'
-  fi
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
