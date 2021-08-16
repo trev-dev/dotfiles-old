@@ -1,0 +1,19 @@
+## Env
+export BORG_PASSPHRASE=redacted
+export BROWSER=/usr/bin/firefox
+export EDITOR=/usr/bin/nvim
+export GEM_HOME=$HOME/.local/ruby
+export GOBIN=$HOME/Projects/Go/bin
+export GOPATH=$HOME/Projects/Go
+export PAGER=/usr/bin/most
+
+## PATH setup
+CARGO=~/.cargo/bin
+COMPOSER=$HOME/.config/composer/vendor/bin
+GO=$GOPATH/bin
+GEMS=$GEM_HOME/bin
+NPM=~/.local/npm/bin:~/.local/yarn/bin
+PYTHON=~/.local/lib/python3.8
+USERBINS=~/.local/bin
+
+export PATH=$USERBINS:$NPM:$GEMS:$GO:$PYTHON:$CARGO:$COMPOSER:$PATH
