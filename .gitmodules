@@ -1,3 +1,0 @@
-[submodule "emacs"]
-	path = emacs
-	url = git@github.com:trev-dev/emacs.git
