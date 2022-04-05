@@ -44,7 +44,7 @@ bindsym Mod4+m focus floating; mode "moveit"
 floating_modifier Mod4
 
 # start a terminal
-bindsym Mod4+Return exec termite
+bindsym Mod4+Return exec kitty
 
 # kill focused window
 bindsym Mod4+Shift+q kill
@@ -161,12 +161,9 @@ bindsym Mod1+Shift+2 move workspace to output left
 assign [class="Emacs"] $ws2
 assign [class="Google-chrome"] $ws3
 assign [class="Signal"] $ws4
-assign [class="Slack"] $ws4
-assign [class="Evolution"] $ws5
-assign [class="Inkscape"] $ws8
-assign [class="Gimp"] $ws8
-assign [class="Steam"] $ws9
-for_window [class="Spotify"] move window to workspace $ws10
+assign [class="Inkscape"] $ws6
+assign [class="Gimp"] $ws6
+assign [class="Steam"] $ws7
 
 # reload the configuration file
 bindsym Mod4+Shift+c reload
@@ -299,12 +296,13 @@ bindsym XF86AudioPrev exec mpc prev
 # Wallpaper
 exec_always feh --bg-scale ~/.dotfiles/i3/wallpapers/blue-whisps.jpg
 exec picom --config ~/.dotfiles/picom/picom.conf -b
+exec syncthing serve --no-browser --logfile=default
 #Apps
 exec /usr/bin/dunst
 # exec /usr/lib/xfce4/notifyd/xfce4-notifyd
 # exec_always --no-startup-id $HOME/.dotfiles/i3/i3poly.sh
 exec --no-startup-id "sleep 2; $HOME/.dotfiles/scripts/autodisplay"
-# exec --no-startup-id "sh -c 'sleep 5; exec nextcloud'"
+
 exec_always setxkbmap -option caps:escape
 exec xautolock -time 5 -corners -000 -cornersize 30 -locker ~/.dotfiles/i3/lock.sh
 # exec light-locker
